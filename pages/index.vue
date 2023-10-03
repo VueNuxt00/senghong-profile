@@ -1,17 +1,37 @@
 <template>
     <div class="flex flex-col items-center w-full h-full justify-center sticky top-0 z-[1] m-0">
-        <div class="w-full flex justify-end p-5 space-x-1 items-center px-20">
+        <div class="w-full flex justify-center flex-wrap p-5 space-x-4 items-center px-20 dark:text-gray-300">
 
-            <div>
-                <label for="name" class=" dark:text-white text-4xl">Hang Senghong</label>
-            </div>
-            <div class="w-[200px] auto rounded-md">
+
+            <div class="w-[200px] auto rounded-full">
                 <a :href="senghong" target="_blank">
-                    <img :src="senghong"
-                        class="w-[200px] h-auto object-cover border-2 opacity-60 border-green-500 rounded-md" alt="">
+                    <img :src="senghong" class="w-[200px] h-[200px] object-cover border-2  border-green-500 rounded-full"
+                        alt="">
                 </a>
             </div>
+            <div>
+                <div class="mb-2">
+                    <label for="name" class=" dark:text-white text-4xl ">Hang Senghong</label>
+                </div>
+                <br>
+                <p>Hello I'm Senghong, <br> I'm Studying at <a href="https://www.norton-u.com/" target="_blank"
+                        class="text-blue-500 hover:underline">Norton University</a>, my major Software Development </p>
+                <p>I am working as <span>QA</span> at <a href="https://www.techbodia.com/" target="_blank"
+                        class="text-red-500  font-medium text-sm">Techbodia</a></p>
+            </div>
         </div>
+        <!-- Skill -->
+        <div class="flex w-full justify-center  flex-wrap items-center  md:p-10 p-4">
+            <div v-for="(skill, index) in skills" :key="index"
+                class="md:min-w-[400px] w-[350px] group  max-w-md myanimation relative h-[200px] dark:bg-gray-700 px-4 bg-gray-200 rounded-md mx-2 my-2 flex justify-center border-2 hover:shadow-md shadow-blue-400 border-transparent hover:border-green-500  items-center">
+                <img :src="skill.bg"
+                    class="h-full group-hover:scale-105 w-full group-hover:duration-[1s] rounded-md absolute" alt="">
+                <h2
+                    class="text-white text-3xl group-hover:text-4xl group-hover:duration-[1s] group-hover:animate-pulse font-bold z-[1]">
+                    {{ skill.name }}</h2>
+            </div>
+        </div>
+
         <div class="flex justify-start items-center px-10 py-2 bg-gray-600 dark:bg-gray-900 w-full m-0  space-x-5 ">
             <NuxtLink class="text-white rounded-md px-3 py-1.5" :to="link.link"
                 :class="{ 'border ': $route.path === link.link }" v-for="(link, index) in links" :key="index">
@@ -32,13 +52,49 @@ import senghong from '~/images/senghong.jpg';
 import javascript from "~/assets/images/javascript.png";
 import flutter from "~/assets/images/flutter.png";
 import python from "~/assets/images/python.png";
-
+// import {skills} from ".fullcion1"
 const links = [
     { name: "Javascript", link: '/', img: javascript },
     { name: "Flutter", link: '/flutter', img: flutter },
     { name: "Python", link: '/python', img: python },
 ]
+const skills = [
+  {
+    name: "Web Development",
+    program: ["Node js", "Vue Js", "Nuxt Js"],
+    bg: "https://www.elegantthemes.com/blog/wp-content/uploads/2018/12/top11.png",
+  },
+  {
+    name: "Mobile Development",
+    program: ["Node js", "Vue Js", "Nuxt Js"],
+    bg: "https://www.ideamotive.co/hubfs/app%20development%20cost.png",
+  },
+ 
+  {
+    name: "Design UI/UX",
+    program: ["Node js", "Vue Js", "Nuxt Js"],
+    bg: "https://blogassets.leverageedu.com/blog/wp-content/uploads/2020/07/30182024/UX-UI-Design.jpg",
+  }, 
+  {
+    name: "Machine Learning (ML)",
+    program: ["Node js", "Vue Js", "Nuxt Js"],
+    bg: "https://www.simplilearn.com/ice9/free_resources_article_thumb/Deep-Learning-vs-Machine-Learning.jpg",
+  },
+];
 
 
 </script>
-<style scoped></style>
+<style scoped>
+.myanimation{
+  animation:frombottom 2s ease-in-out;
+}
+
+@keyframes frombottom{
+   0%{
+    transform: translateY(50%);
+   }
+   100%{
+    transform: translateY(0);
+   }
+}
+</style>
