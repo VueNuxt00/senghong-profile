@@ -4,10 +4,7 @@
 
 
             <div class="w-[200px] auto rounded-full">
-                <a :href="senghong" target="_blank">
-                    <img :src="senghong" class="w-[200px] h-[200px] object-cover border-2  border-green-500 rounded-full"
-                        alt="">
-                </a>
+
             </div>
             <div>
                 <div class="mb-2">

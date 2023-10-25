@@ -1,23 +1,124 @@
-import { reactive, hasInjectionContext, getCurrentInstance, version, unref, inject, toRef as toRef$1, defineComponent, computed, ref, h, resolveComponent, nextTick, shallowRef, shallowReactive, isReadonly, isRef, isShallow, isReactive, toRaw, getCurrentScope, onScopeDispose, watch, openBlock, createElementBlock, createElementVNode, warn, provide, mergeProps, renderSlot, onUnmounted, useAttrs as useAttrs$1, useSlots, withDirectives, createCommentVNode, Fragment, normalizeClass, createBlock, withCtx, resolveDynamicComponent, withModifiers, createVNode, toDisplayString, normalizeStyle, vShow, Transition, onUpdated, cloneVNode, Text, Comment, Teleport, readonly, toRefs, triggerRef, resolveDirective, renderList, withKeys, vModelText, createSlots, customRef, watchEffect, createTextVNode, useSSRContext, Suspense, defineAsyncComponent, onErrorCaptured, onServerPrefetch, createApp } from "vue";
-import { $fetch } from "ofetch";
-import { useRuntimeConfig as useRuntimeConfig$1 } from "#internal/nitro";
-import { createHooks } from "hookable";
-import { getContext } from "unctx";
-import "destr";
-import "devalue";
-import { defu } from "defu";
-import "klona";
-import { getActiveHead } from "unhead";
-import { defineHeadPlugin } from "@unhead/shared";
-import { createMemoryHistory, createRouter, START_LOCATION, useRoute as useRoute$1, RouterView } from "vue-router";
-import { sanitizeStatusCode, createError as createError$1 } from "h3";
-import { withQuery, hasProtocol, parseURL, isScriptProtocol, joinURL, parseQuery, withTrailingSlash, withoutTrailingSlash } from "ufo";
-import { isString as isString$1, isObject as isObject$1, hasOwn, NOOP, isFunction, isArray, toRawType } from "@vue/shared";
-import { createI18n } from "vue-i18n";
-import { ssrRenderAttrs, ssrRenderList, ssrRenderComponent, ssrInterpolate, ssrRenderSuspense, ssrRenderVNode } from "vue/server-renderer";
-import { createPopper, placements } from "@popperjs/core";
-import { fromPairs, get, isNil, isUndefined as isUndefined$1, isEqual, debounce, findLastIndex } from "lodash-unified";
-import { TinyColor } from "@ctrl/tinycolor";
+import { version, unref, inject, ref, defineComponent, computed, openBlock, createElementBlock, mergeProps, renderSlot, useAttrs as useAttrs$1, useSlots, shallowRef, watch, nextTick, toRef as toRef$1, withDirectives, createCommentVNode, Fragment, normalizeClass, createElementVNode, createBlock, withCtx, resolveDynamicComponent, withModifiers, createVNode, toDisplayString, normalizeStyle, vShow, provide, reactive, onUpdated, Teleport, Transition, readonly, toRefs, useSSRContext, h, Suspense, resolveComponent, warn, getCurrentInstance, onUnmounted, cloneVNode, Text, Comment, triggerRef, toRaw, createTextVNode, renderList, shallowReactive, createApp, hasInjectionContext, getCurrentScope, onScopeDispose, isRef, resolveDirective, withKeys, vModelText, createSlots, onErrorCaptured, onServerPrefetch, isReadonly, customRef, defineAsyncComponent, isShallow, isReactive, watchEffect } from 'vue';
+import { h as useRuntimeConfig$1, k as createError$1, n as defu, $ as $fetch, o as hasProtocol, p as parseURL, q as parseQuery, r as createHooks, t as withTrailingSlash, v as withoutTrailingSlash, x as withQuery, y as isScriptProtocol, j as joinURL, z as sanitizeStatusCode } from '../nitro/node-server.mjs';
+import { getActiveHead } from 'unhead';
+import { defineHeadPlugin } from '@unhead/shared';
+import { RouterView, createMemoryHistory, createRouter, START_LOCATION, useRoute as useRoute$1 } from 'vue-router';
+import { NOOP, isString as isString$1, isObject as isObject$1, hasOwn, isFunction, toRawType, isArray } from '@vue/shared';
+import { createI18n } from 'vue-i18n';
+import { ssrRenderAttrs, ssrRenderList, ssrRenderComponent, ssrInterpolate, ssrRenderSuspense, ssrRenderVNode } from 'vue/server-renderer';
+import { placements, createPopper } from '@popperjs/core';
+import { isNil, fromPairs, isUndefined as isUndefined$1, isEqual, get, debounce, findLastIndex } from 'lodash-unified';
+import { TinyColor } from '@ctrl/tinycolor';
+import 'node:http';
+import 'node:https';
+import 'node:zlib';
+import 'node:stream';
+import 'node:buffer';
+import 'node:util';
+import 'node:url';
+import 'node:net';
+import 'node:fs';
+import 'node:path';
+import 'fs';
+import 'path';
+
+function createContext$1(opts = {}) {
+  let currentInstance;
+  let isSingleton = false;
+  const checkConflict = (instance) => {
+    if (currentInstance && currentInstance !== instance) {
+      throw new Error("Context conflict");
+    }
+  };
+  let als;
+  if (opts.asyncContext) {
+    const _AsyncLocalStorage = opts.AsyncLocalStorage || globalThis.AsyncLocalStorage;
+    if (_AsyncLocalStorage) {
+      als = new _AsyncLocalStorage();
+    } else {
+      console.warn("[unctx] `AsyncLocalStorage` is not provided.");
+    }
+  }
+  const _getCurrentInstance = () => {
+    if (als && currentInstance === void 0) {
+      const instance = als.getStore();
+      if (instance !== void 0) {
+        return instance;
+      }
+    }
+    return currentInstance;
+  };
+  return {
+    use: () => {
+      const _instance = _getCurrentInstance();
+      if (_instance === void 0) {
+        throw new Error("Context is not available");
+      }
+      return _instance;
+    },
+    tryUse: () => {
+      return _getCurrentInstance();
+    },
+    set: (instance, replace) => {
+      if (!replace) {
+        checkConflict(instance);
+      }
+      currentInstance = instance;
+      isSingleton = true;
+    },
+    unset: () => {
+      currentInstance = void 0;
+      isSingleton = false;
+    },
+    call: (instance, callback) => {
+      checkConflict(instance);
+      currentInstance = instance;
+      try {
+        return als ? als.run(instance, callback) : callback();
+      } finally {
+        if (!isSingleton) {
+          currentInstance = void 0;
+        }
+      }
+    },
+    async callAsync(instance, callback) {
+      currentInstance = instance;
+      const onRestore = () => {
+        currentInstance = instance;
+      };
+      const onLeave = () => currentInstance === instance ? onRestore : void 0;
+      asyncHandlers$1.add(onLeave);
+      try {
+        const r = als ? als.run(instance, callback) : callback();
+        if (!isSingleton) {
+          currentInstance = void 0;
+        }
+        return await r;
+      } finally {
+        asyncHandlers$1.delete(onLeave);
+      }
+    }
+  };
+}
+function createNamespace$1(defaultOpts = {}) {
+  const contexts = {};
+  return {
+    get(key, opts = {}) {
+      if (!contexts[key]) {
+        contexts[key] = createContext$1({ ...defaultOpts, ...opts });
+      }
+      contexts[key];
+      return contexts[key];
+    }
+  };
+}
+const _globalThis$1 = typeof globalThis !== "undefined" ? globalThis : typeof self !== "undefined" ? self : typeof global !== "undefined" ? global : {};
+const globalKey$4 = "__unctx__";
+const defaultNamespace$1 = _globalThis$1[globalKey$4] || (_globalThis$1[globalKey$4] = createNamespace$1());
+const getContext = (key, opts = {}) => defaultNamespace$1.get(key, opts);
+const asyncHandlersKey$1 = "__unctx_async_handlers__";
+const asyncHandlers$1 = _globalThis$1[asyncHandlersKey$1] || (_globalThis$1[asyncHandlersKey$1] = /* @__PURE__ */ new Set());
+
 const appConfig = useRuntimeConfig$1().app;
 const baseURL = () => appConfig.baseURL;
 const nuxtAppCtx = /* @__PURE__ */ getContext("nuxt-app", {
@@ -225,7 +326,7 @@ function injectHead() {
     return _global$2[globalKey$3]();
   }
   const head = inject(headSymbol);
-  if (!head && process.env.NODE_ENV !== "production")
+  if (!head && "production" !== "production")
     console.warn("Unhead is missing Vue context, falling back to shared context. This may have unexpected results.");
   return head || getActiveHead();
 }
@@ -680,7 +781,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/about-55c7eaba.js").then((m) => m.default || m)
+    component: () => import('./_nuxt/about-55c7eaba.mjs').then((m) => m.default || m)
   },
   {
     name: "contact",
@@ -688,7 +789,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/contact-4eac5c6f.js").then((m) => m.default || m)
+    component: () => import('./_nuxt/contact-4eac5c6f.mjs').then((m) => m.default || m)
   },
   {
     path: "/",
@@ -699,7 +800,7 @@ const _routes = [
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import("./_nuxt/flutter-5a6b8c81.js").then((m) => m.default || m)
+        component: () => import('./_nuxt/flutter-5a6b8c81.mjs').then((m) => m.default || m)
       },
       {
         name: "index",
@@ -707,7 +808,7 @@ const _routes = [
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import("./_nuxt/index-63e25120.js").then((m) => m.default || m)
+        component: () => import('./_nuxt/index-63e25120.mjs').then((m) => m.default || m)
       },
       {
         name: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.name) ?? "index-python",
@@ -715,14 +816,14 @@ const _routes = [
         meta: __nuxt_page_meta || {},
         alias: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.alias) || [],
         redirect: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.redirect) || void 0,
-        component: () => import("./_nuxt/python-f84a8ae3.js").then((m) => m.default || m)
+        component: () => import('./_nuxt/python-f84a8ae3.mjs').then((m) => m.default || m)
       }
     ],
     name: void 0,
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/index-0968c085.js").then((m) => m.default || m)
+    component: () => import('./_nuxt/index-0968c085.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -993,12 +1094,11 @@ const composeEventHandlers = (theirsHandler, oursHandler, { checkForDefaultPreve
   };
   return handleEvent;
 };
-var _a;
 const isClient = false;
 const isString = (val) => typeof val === "string";
 const noop$1 = () => {
 };
-const isIOS = isClient && ((_a = window == null ? void 0 : window.navigator) == null ? void 0 : _a.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
+const isIOS = isClient  ;
 function resolveUnref(r) {
   return typeof r === "function" ? r() : unref(r);
 }
@@ -1067,15 +1167,10 @@ function useEventListener$1(...args) {
   tryOnScopeDispose$1(stop);
   return stop;
 }
-let _iOSWorkaround = false;
 function onClickOutside(target, handler, options = {}) {
   const { window: window2 = defaultWindow$1, ignore = [], capture = true, detectIframe = false } = options;
   if (!window2)
     return;
-  if (isIOS && !_iOSWorkaround) {
-    _iOSWorkaround = true;
-    Array.from(window2.document.body.children).forEach((el) => el.addEventListener("click", noop$1));
-  }
   let shouldListen = true;
   const shouldIgnore = (event) => {
     return ignore.some((target2) => {
@@ -1246,12 +1341,7 @@ function throwError(scope, m) {
   throw new ElementPlusError(`[${scope}] ${m}`);
 }
 function debugWarn(scope, message) {
-  if (process.env.NODE_ENV !== "production") {
-    const error = isString$1(scope) ? new ElementPlusError(`[${scope}] ${message}`) : scope;
-    console.warn(error);
-  }
 }
-const SCOPE = "utils/dom/style";
 function addUnit(value, defaultUnit = "px") {
   if (!value)
     return "";
@@ -1260,7 +1350,6 @@ function addUnit(value, defaultUnit = "px") {
   } else if (isString$1(value)) {
     return value;
   }
-  debugWarn(SCOPE, "binding value must be a string or number");
 }
 /*! Element Plus Icons Vue v2.1.0 */
 var export_helper_default = (sfc, props) => {
@@ -1559,7 +1648,6 @@ const useAttrs = (params = {}) => {
   });
   const instance = getCurrentInstance();
   if (!instance) {
-    debugWarn("use-attrs", "getCurrentInstance() returned null. useAttrs() must be called at the top of a setup function");
     return computed(() => ({}));
   }
   return computed(() => {
@@ -1569,11 +1657,6 @@ const useAttrs = (params = {}) => {
 };
 const useDeprecated = ({ from, replacement, scope, version: version2, ref: ref2, type = "API" }, condition) => {
   watch(() => unref(condition), (val) => {
-    if (val) {
-      debugWarn(scope, `[${type}] ${from} is about to be deprecated in version ${version2}, please use ${replacement} instead.
-For more detail, please visit: ${ref2}
-`);
-    }
   }, {
     immediate: true
   });
@@ -1950,7 +2033,6 @@ const createModelToggleComposable = (name) => {
     useModelToggleEmits: useModelToggleEmits2
   };
 };
-createModelToggleComposable("modelValue");
 const useProp = (name) => {
   const vm = getCurrentInstance();
   return computed(() => {
@@ -2066,13 +2148,6 @@ const useIdInjection = () => {
 };
 const useId = (deterministicId) => {
   const idInjection = useIdInjection();
-  if (idInjection === defaultIdInjection) {
-    debugWarn("IdInjection", `Looks like you are using server rendering, you must provide a id provider to ensure the hydration process to be succeed
-usage: app.provide(ID_INJECTION_KEY, {
-  prefix: number,
-  current: number,
-})`);
-  }
   const namespace = useGetDerivedNamespace();
   const idRef = computed(() => unref(deterministicId) || `${namespace.value}-id-${idInjection.prefix}-${idInjection.current++}`);
   return idRef;
@@ -2556,7 +2631,7 @@ const _sfc_main$n = /* @__PURE__ */ defineComponent({
       afterBlur() {
         var _a2;
         if (props.validateEvent) {
-          (_a2 = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _a2.call(formItem, "blur").catch((err) => debugWarn(err));
+          (_a2 = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _a2.call(formItem, "blur").catch((err) => debugWarn());
         }
       }
     });
@@ -2695,7 +2770,7 @@ const _sfc_main$n = /* @__PURE__ */ defineComponent({
       var _a2;
       nextTick(() => resizeTextarea());
       if (props.validateEvent) {
-        (_a2 = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _a2.call(formItem, "change").catch((err) => debugWarn(err));
+        (_a2 = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _a2.call(formItem, "change").catch((err) => debugWarn());
       }
     });
     watch(nativeInputValue, () => setNativeInputValue());
@@ -3213,14 +3288,12 @@ const _sfc_main$k = /* @__PURE__ */ defineComponent({
     }
     const setScrollTop = (value) => {
       if (!isNumber(value)) {
-        debugWarn(COMPONENT_NAME$1, "value must be a number");
         return;
       }
       wrapRef.value.scrollTop = value;
     };
     const setScrollLeft = (value) => {
       if (!isNumber(value)) {
-        debugWarn(COMPONENT_NAME$1, "value must be a number");
         return;
       }
       wrapRef.value.scrollLeft = value;
@@ -3411,12 +3484,10 @@ const OnlyChild = /* @__PURE__ */ defineComponent({
       if (!defaultSlot)
         return null;
       if (defaultSlot.length > 1) {
-        debugWarn(NAME, "requires exact only one valid child.");
         return null;
       }
       const firstLegitNode = findFirstLegitChild(defaultSlot);
       if (!firstLegitNode) {
-        debugWarn(NAME, "no valid child node found");
         return null;
       }
       return withDirectives(cloneVNode(firstLegitNode, attrs), [[forwardRefDirective]]);
@@ -3560,8 +3631,6 @@ const getVisibleElement = (elements, container) => {
   }
 };
 const isHidden = (element, container) => {
-  if (process.env.NODE_ENV === "test")
-    return false;
   if (getComputedStyle(element).visibility === "hidden")
     return true;
   while (element) {
@@ -4282,9 +4351,6 @@ const _sfc_main$d = /* @__PURE__ */ defineComponent({
       return props.transition || `${ns.namespace.value}-fade-in-linear`;
     });
     const persistentRef = computed(() => {
-      if (process.env.NODE_ENV === "test") {
-        return true;
-      }
       return props.persistent;
     });
     const shouldRender = computed(() => {
@@ -5339,7 +5405,7 @@ const useSelect = (props, states, ctx) => {
       states.inputLength = 20;
     }
     if (!isEqual(val, oldVal) && props.validateEvent) {
-      formItem == null ? void 0 : formItem.validate("change").catch((err) => debugWarn(err));
+      formItem == null ? void 0 : formItem.validate("change").catch((err) => debugWarn());
     }
   }, {
     flush: "post",
@@ -6744,15 +6810,6 @@ const plugins = [
   element_plus_injection_plugin_1RNPi6ogby,
   i18n_VfGcjrvSkj
 ];
-const base = "";
-const elInput = "";
-const elTag = "";
-const elOption = "";
-const elOptionGroup = "";
-const elScrollbar = "";
-const elPopper = "";
-const elSelect = "";
-const elButton = "";
 function tryOnScopeDispose(fn) {
   if (getCurrentScope()) {
     onScopeDispose(fn);
@@ -7650,8 +7707,8 @@ const _sfc_main$1 = {
     const statusMessage = _error.statusMessage ?? (is404 ? "Page Not Found" : "Internal Server Error");
     const description = _error.message || _error.toString();
     const stack = void 0;
-    const _Error404 = /* @__PURE__ */ defineAsyncComponent(() => import("./_nuxt/error-404-cdccf47c.js").then((r) => r.default || r));
-    const _Error = /* @__PURE__ */ defineAsyncComponent(() => import("./_nuxt/error-500-98142dd1.js").then((r) => r.default || r));
+    const _Error404 = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/error-404-cdccf47c.mjs').then((r) => r.default || r));
+    const _Error = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/error-500-98142dd1.mjs').then((r) => r.default || r));
     const ErrorTemplate = is404 ? _Error404 : _Error;
     return (_ctx, _push, _parent, _attrs) => {
       _push(ssrRenderComponent(unref(ErrorTemplate), mergeProps({ statusCode: unref(statusCode), statusMessage: unref(statusMessage), description: unref(description), stack: unref(stack) }, _attrs), null, _parent));
@@ -7669,7 +7726,7 @@ const _sfc_main = {
   __name: "nuxt-root",
   __ssrInlineRender: true,
   setup(__props) {
-    const IslandRenderer = /* @__PURE__ */ defineAsyncComponent(() => import("./_nuxt/island-renderer-3fcc46b5.js").then((r) => r.default || r));
+    const IslandRenderer = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/island-renderer-3fcc46b5.mjs').then((r) => r.default || r));
     const nuxtApp = /* @__PURE__ */ useNuxtApp();
     nuxtApp.deferHydration();
     nuxtApp.ssrContext.url;
@@ -7735,13 +7792,6 @@ let entry;
   };
 }
 const entry$1 = (ctx) => entry(ctx);
-export {
-  _export_sfc as _,
-  __nuxt_component_0 as a,
-  __nuxt_component_1 as b,
-  createError as c,
-  entry$1 as default,
-  injectHead as i,
-  resolveUnrefHeadInput as r
-};
+
+export { _export_sfc as _, __nuxt_component_0 as a, __nuxt_component_1 as b, createError as c, entry$1 as default, injectHead as i, resolveUnrefHeadInput as r };
 //# sourceMappingURL=server.mjs.map
