@@ -1,14 +1,37 @@
+// Specify a different build command
 {
+  "version": 2,
   "builds": [
     {
-      "src": "server.js",
-      "use": "@vercel/node"
+      "src": "nuxt.config.js",
+      "use": "@nuxtjs/vercel-builder",
+      "buildCommand": "npm run build"
     }
-  ],
-  "routes": [
+  ]
+}
+
+// Specify a different output directory
+{
+  "version": 2,
+  "builds": [
     {
-      "src": "/(.*)",
-      "dest": "server.js"
+      "src": "nuxt.config.js",
+      "use": "@nuxtjs/vercel-builder",
+      "outputDirectory": "./dist"
+    }
+  ]
+}
+
+// Set an environment variable
+{
+  "version": 2,
+  "env": {
+    "MY_VARIABLE": "my_value"
+  },
+  "builds": [
+    {
+      "src": "nuxt.config.js",
+      "use": "@nuxtjs/vercel-builder"
     }
   ]
 }
