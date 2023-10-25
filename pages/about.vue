@@ -21,7 +21,7 @@ const isComplete = ref(false)
 
 const items = ref()
 
-import { ref, watch } from "vue"
+import { ref } from "vue"
 const dataList = ref([
     { id: 1, title: "Create test case", complete: false },
     { id: 2, title: "Create test case", complete: true },
