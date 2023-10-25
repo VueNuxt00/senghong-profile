@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
   modules: ["@element-plus/nuxt", "@vueuse/nuxt"],
- 
+
   devtools: { enabled: true },
   postcss: {
     plugins: {
@@ -10,4 +10,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  app:{
+    
+  }
 });

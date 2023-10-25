@@ -11,6 +11,7 @@
 
             <div v-if="item === 1">
                 <h2>Hello Vue3 js</h2>
+                <a href="https://vuejs.org/"  target="_blank" class=" text-green-500 underline hover:text-green-400">Go to vue web site for tutorial</a>
             </div>
             <div v-else-if="item === 2">
                 Hello Nuxt3 js

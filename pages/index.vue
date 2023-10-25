@@ -14,16 +14,17 @@
                     <label for="name" class=" dark:text-white text-4xl ">Hang Senghong</label>
                 </div>
                 <br>
-                <p>Hello I'm Senghong, <br> I'm Studying at <a href="https://www.norton-u.com/" target="_blank"
-                        class="text-blue-500 hover:underline">Norton University</a>, my major Software Development </p>
+                <p>Hello I'm Senghong, <br> I'm Studying at <NuxtLink to="https://www.norton-u.com/" target="_blank"
+                        class="text-blue-500 hover:underline">Norton University</NuxtLink>, my major Software Development
+                </p>
                 <p>I am working as <span>QA</span> at <a href="https://www.techbodia.com/" target="_blank"
                         class="text-red-500  font-medium text-sm">Techbodia</a></p>
             </div>
         </div>
         <!-- Skill -->
-        <div class="flex w-full justify-center  flex-wrap items-center  md:p-10 p-4">
+        <div class="flex w-full justify-center  flex-wrap items-center md:p-10 p-4">
             <div v-for="(skill, index) in skills" :key="index"
-                class="md:min-w-[400px] w-[350px] group  max-w-md myanimation relative h-[200px] dark:bg-gray-700 px-4 bg-gray-200 rounded-md mx-2 my-2 flex justify-center border-2 hover:shadow-md shadow-blue-400 border-transparent hover:border-green-500  items-center">
+                class="md:min-w-[400px] w-[350px] group  max-w-md myanimation relative overflow-hidden h-[200px] dark:bg-gray-700 px-4 bg-gray-200 rounded-md mx-2 my-2 flex justify-center border-2 hover:shadow-md shadow-blue-400 border-transparent hover:border-green-500  items-center">
                 <img :src="skill.bg"
                     class="h-full group-hover:scale-105 w-full group-hover:duration-[1s] rounded-md absolute" alt="">
                 <h2
@@ -48,6 +49,8 @@
     </div>
 </template>
 <script setup lang="ts">
+
+
 import senghong from '~/images/senghong.jpg';
 import javascript from "~/assets/images/javascript.png";
 import flutter from "~/assets/images/flutter.png";
@@ -59,42 +62,43 @@ const links = [
     { name: "Python", link: '/python', img: python },
 ]
 const skills = [
-  {
-    name: "Web Development",
-    program: ["Node js", "Vue Js", "Nuxt Js"],
-    bg: "https://www.elegantthemes.com/blog/wp-content/uploads/2018/12/top11.png",
-  },
-  {
-    name: "Mobile Development",
-    program: ["Node js", "Vue Js", "Nuxt Js"],
-    bg: "https://www.ideamotive.co/hubfs/app%20development%20cost.png",
-  },
- 
-  {
-    name: "Design UI/UX",
-    program: ["Node js", "Vue Js", "Nuxt Js"],
-    bg: "https://blogassets.leverageedu.com/blog/wp-content/uploads/2020/07/30182024/UX-UI-Design.jpg",
-  }, 
-  {
-    name: "Machine Learning (ML)",
-    program: ["Node js", "Vue Js", "Nuxt Js"],
-    bg: "https://www.simplilearn.com/ice9/free_resources_article_thumb/Deep-Learning-vs-Machine-Learning.jpg",
-  },
+    {
+        name: "Web Development",
+        program: ["Node js", "Vue Js", "Nuxt Js"],
+        bg: "https://www.elegantthemes.com/blog/wp-content/uploads/2018/12/top11.png",
+    },
+    {
+        name: "Mobile Development",
+        program: ["Node js", "Vue Js", "Nuxt Js"],
+        bg: "https://www.ideamotive.co/hubfs/app%20development%20cost.png",
+    },
+
+    {
+        name: "Design UI/UX",
+        program: ["Node js", "Vue Js", "Nuxt Js"],
+        bg: "https://blogassets.leverageedu.com/blog/wp-content/uploads/2020/07/30182024/UX-UI-Design.jpg",
+    },
+    {
+        name: "Machine Learning (ML)",
+        program: ["Node js", "Vue Js", "Nuxt Js"],
+        bg: "https://www.simplilearn.com/ice9/free_resources_article_thumb/Deep-Learning-vs-Machine-Learning.jpg",
+    },
 ];
 
 
 </script>
 <style scoped>
-.myanimation{
-  animation:frombottom 2s ease-in-out;
+.myanimation {
+    animation: frombottom 2s ease-in-out;
 }
 
-@keyframes frombottom{
-   0%{
-    transform: translateY(50%);
-   }
-   100%{
-    transform: translateY(0);
-   }
+@keyframes frombottom {
+    0% {
+        transform: translateY(50%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 </style>
