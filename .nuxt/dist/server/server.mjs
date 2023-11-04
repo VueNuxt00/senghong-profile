@@ -680,7 +680,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/about-55c7eaba.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/about-aead74c3.js").then((m) => m.default || m)
   },
   {
     name: "contact",

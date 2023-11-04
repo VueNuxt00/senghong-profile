@@ -16,7 +16,7 @@ export default defineNuxtConfig({
         return;
       }
       // ..Async logic..
-      nitroConfig.prerender.routes.push("/index");
+      nitroConfig.prerender.routes.push("/");
     },
   },
   app: {},

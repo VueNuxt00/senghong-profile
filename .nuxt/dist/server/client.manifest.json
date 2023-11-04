@@ -1,10 +1,10 @@
 {
-  "_vue.f36acd1f.f6c80449.js": {
+  "_vue.f36acd1f.6416970b.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "vue.f36acd1f.f6c80449.js",
+    "file": "vue.f36acd1f.6416970b.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
@@ -22,10 +22,10 @@
     "prefetch": true,
     "preload": true,
     "css": [],
-    "file": "error-404.5e20db62.js",
+    "file": "error-404.3c1d583e.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_vue.f36acd1f.f6c80449.js"
+      "_vue.f36acd1f.6416970b.js"
     ],
     "isDynamicEntry": true,
     "src": "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue"
@@ -49,9 +49,9 @@
     "prefetch": true,
     "preload": true,
     "css": [],
-    "file": "error-500.88c75040.js",
+    "file": "error-500.89ce268a.js",
     "imports": [
-      "_vue.f36acd1f.f6c80449.js",
+      "_vue.f36acd1f.6416970b.js",
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "isDynamicEntry": true,
@@ -82,7 +82,7 @@
       "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
       "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue"
     ],
-    "file": "entry.cf221a7a.js",
+    "file": "entry.808d6b04.js",
     "isEntry": true,
     "src": "node_modules/nuxt/dist/app/entry.js",
     "_globalCSS": true
@@ -98,7 +98,7 @@
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "about.41092a3a.js",
+    "file": "about.0ab11cb6.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -110,7 +110,7 @@
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "contact.660f140b.js",
+    "file": "contact.fb9ada14.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -130,7 +130,7 @@
     "prefetch": true,
     "preload": true,
     "css": [],
-    "file": "index.2249da48.js",
+    "file": "index.4d656959.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -148,7 +148,7 @@
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "flutter.bd778b98.js",
+    "file": "flutter.8ca6e59b.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -160,7 +160,7 @@
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "index.e0a66172.js",
+    "file": "index.16405350.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -172,7 +172,7 @@
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "python.6fd9e925.js",
+    "file": "python.8f4b010c.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
