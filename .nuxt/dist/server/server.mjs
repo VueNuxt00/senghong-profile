@@ -687,7 +687,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/contact-6d99b666.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/contact-f5e8133f.js").then((m) => m.default || m)
   },
   {
     path: "/",

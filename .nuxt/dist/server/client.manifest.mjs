@@ -1,10 +1,10 @@
 export default {
-  "_vue.f36acd1f.589c928d.js": {
+  "_vue.f36acd1f.b53456d7.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "vue.f36acd1f.589c928d.js",
+    "file": "vue.f36acd1f.b53456d7.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
@@ -22,10 +22,10 @@ export default {
     "prefetch": true,
     "preload": true,
     "css": [],
-    "file": "error-404.9f7bcb26.js",
+    "file": "error-404.4bb43ee5.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_vue.f36acd1f.589c928d.js"
+      "_vue.f36acd1f.b53456d7.js"
     ],
     "isDynamicEntry": true,
     "src": "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue"
@@ -49,9 +49,9 @@ export default {
     "prefetch": true,
     "preload": true,
     "css": [],
-    "file": "error-500.cc324e19.js",
+    "file": "error-500.c18a1920.js",
     "imports": [
-      "_vue.f36acd1f.589c928d.js",
+      "_vue.f36acd1f.b53456d7.js",
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "isDynamicEntry": true,
@@ -82,7 +82,7 @@ export default {
       "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
       "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue"
     ],
-    "file": "entry.4a4d09ac.js",
+    "file": "entry.4c5452ca.js",
     "isEntry": true,
     "src": "node_modules/nuxt/dist/app/entry.js",
     "_globalCSS": true
@@ -98,7 +98,7 @@ export default {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "about.e95d5f20.js",
+    "file": "about.43f95ad2.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -109,7 +109,7 @@ export default {
     "resourceType": "style",
     "prefetch": true,
     "preload": true,
-    "file": "contact.d546d0ff.css",
+    "file": "contact.e6148d3f.css",
     "src": "pages/contact.css"
   },
   "pages/contact.vue": {
@@ -118,15 +118,15 @@ export default {
     "prefetch": true,
     "preload": true,
     "css": [],
-    "file": "contact.36c52248.js",
+    "file": "contact.c9cd55b8.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/contact.vue"
   },
-  "contact.d546d0ff.css": {
-    "file": "contact.d546d0ff.css",
+  "contact.e6148d3f.css": {
+    "file": "contact.e6148d3f.css",
     "resourceType": "style",
     "prefetch": true,
     "preload": true
@@ -144,7 +144,7 @@ export default {
     "prefetch": true,
     "preload": true,
     "css": [],
-    "file": "index.735ac7df.js",
+    "file": "index.595abe1d.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -162,7 +162,7 @@ export default {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "flutter.de2fdd2e.js",
+    "file": "flutter.3738f254.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -174,7 +174,7 @@ export default {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "index.f422fc3b.js",
+    "file": "index.25b705fd.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -186,7 +186,7 @@ export default {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "python.6cbc5c54.js",
+    "file": "python.635ce575.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
