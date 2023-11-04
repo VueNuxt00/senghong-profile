@@ -8,11 +8,11 @@
                     link.name }}</NuxtLink>
 
         </div>
-        <div class="w-[100px]">
+        <!-- <div class="w-[100px]">
             <el-select v-model="value" placeholder="Select">
                 <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
             </el-select>
-        </div>
+        </div> -->
         <!-- Switch button -->
         <el-button type="success" @click="toggleDark()">
             <i inline-block align-middle i="dark:carbon-moon carbon-sun" />
