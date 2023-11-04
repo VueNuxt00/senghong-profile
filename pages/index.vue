@@ -8,7 +8,7 @@
             </div>
             <div>
                 <div class="mb-2">
-                    <label for="name" class=" dark:text-white text-4xl ">Hang Senghong</label>
+                    <label for="name" class=" dark:text-white text-2xl sm:text-4xl  font-bold">Hang Senghong</label>
                 </div>
                 <br>
                 <p>Hello I'm Senghong, <br> I'm Studying at <NuxtLink to="https://www.norton-u.com/" target="_blank"

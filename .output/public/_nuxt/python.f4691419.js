@@ -1,0 +1,1 @@
+import{q as e,o as t,c as o,a}from"./entry.ba0d9851.js";const s={class:"w-full rounded-md dark:bg-gray-800 bg-gray-200 dark:text-white p-5"},n=a("h2",null,"Python",-1),r=[n],p=e({__name:"python",setup(c){return(_,d)=>(t(),o("div",s,r))}});export{p as default};

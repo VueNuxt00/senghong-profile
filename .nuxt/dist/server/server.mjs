@@ -13,7 +13,7 @@ import { createMemoryHistory, createRouter, START_LOCATION, useRoute as useRoute
 import { sanitizeStatusCode, createError as createError$1 } from "h3";
 import { withQuery, hasProtocol, parseURL, isScriptProtocol, joinURL, parseQuery, withTrailingSlash, withoutTrailingSlash } from "ufo";
 import { createI18n } from "vue-i18n";
-import { ssrRenderAttrs, ssrRenderList, ssrRenderComponent, ssrInterpolate, ssrRenderSuspense, ssrRenderVNode } from "vue/server-renderer";
+import { ssrRenderList, ssrRenderComponent, ssrInterpolate, ssrRenderAttrs, ssrRenderSuspense, ssrRenderVNode } from "vue/server-renderer";
 import { fromPairs } from "lodash-unified";
 import { isString, isObject as isObject$1, hasOwn, NOOP } from "@vue/shared";
 import { TinyColor } from "@ctrl/tinycolor";
@@ -687,7 +687,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/contact-891dcd2e.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/contact-e7db4868.js").then((m) => m.default || m)
   },
   {
     path: "/",
@@ -721,7 +721,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/index-e934db56.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index-6c1cad00.js").then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -2069,7 +2069,7 @@ function useDark(options = {}) {
       light: valueLight
     }
   });
-  const isDark = computed({
+  const isDark2 = computed({
     get() {
       return mode.value === "dark";
     },
@@ -2081,25 +2081,31 @@ function useDark(options = {}) {
         mode.value = modeVal;
     }
   });
-  return isDark;
+  return isDark2;
 }
+const links = [
+  { name: "home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Contact Me", href: "/contact" }
+];
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
+const myInfo = [
+  { title: "Phone", data: "096 834 125" },
+  { title: "Email", data: "senghonghang@gmail.com" },
+  { title: "Address", data: "Kampong Cham" }
+];
 const _sfc_main$4 = /* @__PURE__ */ defineComponent({
   __name: "NavBar",
   __ssrInlineRender: true,
   setup(__props) {
     ref("");
-    const isDark = useDark();
-    const toggleDark = useToggle(isDark);
-    const links = [
-      { name: "home", href: "/" },
-      { name: "About", href: "/about" },
-      { name: "Contact Us", href: "/contact" }
-    ];
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0;
       const _component_el_button = ElButton;
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "md:flex hidden w-full bg-gray-200 text-gray-800 dark:bg-gray-900 border-b-[0.5px] dark:text-white justify-center px-10 py-2 space-x-4 sticky top-0 z-[2]" }, _attrs))}><div class="w-full flex justify-center"><!--[-->`);
-      ssrRenderList(links, (link, index) => {
+      const _component_nuxt_link = __nuxt_component_0;
+      _push(`<!--[--><div class="md:flex hidden w-full bg-gray-200 text-gray-800 dark:bg-gray-900 border-b-[0.5px] dark:text-white justify-center px-10 py-2 space-x-4 sticky top-0 z-[2]"><div class="w-full flex justify-center"><!--[-->`);
+      ssrRenderList(unref(links), (link, index) => {
         _push(ssrRenderComponent(_component_NuxtLink, {
           to: link.href,
           onClick: ($event) => console.log(_ctx.$route.matched[0].path),
@@ -2139,7 +2145,26 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
         }),
         _: 1
       }, _parent));
-      _push(`</div>`);
+      _push(`</div><div class="md:hidden justify-center items-center flex w-full p-2 fixed z-10 bottom-0 bg-gray-800 text-white font-bold"><!--[-->`);
+      ssrRenderList(unref(links), (link) => {
+        _push(ssrRenderComponent(_component_nuxt_link, {
+          to: link.href,
+          key: link.name,
+          class: ["w-full flex justify-evenly", { "text-green-500": _ctx.$route.path === link.href }]
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`<span${_scopeId}>${ssrInterpolate(link.name)}</span>`);
+            } else {
+              return [
+                createVNode("span", null, toDisplayString(link.name), 1)
+              ];
+            }
+          }),
+          _: 2
+        }, _parent));
+      });
+      _push(`<!--]--></div><!--]-->`);
     };
   }
 });
@@ -2545,6 +2570,7 @@ export {
   createError as c,
   entry$1 as default,
   injectHead as i,
+  myInfo as m,
   resolveUnrefHeadInput as r
 };
 //# sourceMappingURL=server.mjs.map

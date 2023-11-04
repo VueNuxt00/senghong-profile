@@ -16,36 +16,18 @@
         </el-button>
 
     </div>
+    <div
+        class="md:hidden justify-center items-center  flex w-full p-2 fixed z-10 bottom-0 bg-gray-800 text-white font-bold">
+        <!-- <span>Navigation Bar</span> -->
+        <nuxt-link :to="link.href" v-for="link in links" :key="link.name" class="w-full flex  justify-evenly"
+            :class="{ 'text-green-500': $route.path === link.href }">
+            <span>{{ link.name }}</span>
+        </nuxt-link>
+    </div>
 </template>
 <script setup lang="ts">
+import { links, toggleDark, isDark } from '~~/interfaces/interface'
+
 import { ref } from "vue"
 const value = ref('')
-import { useDark, useToggle } from '@vueuse/core'
-const isDark = useDark()
-const toggleDark = useToggle(isDark)
-
-const links = [
-    { name: "home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Contact Us", href: "/contact" },
-];
-const options = [
-    {
-        value: 'en',
-        label: 'English',
-    },
-    {
-        value: 'kh',
-        label: 'Khmer',
-    },
-]
-const onChangeLocale = () => {
-    localStorage.setItem('lang', value.value.toString());
-
-    // console.log(typeof lang)
-
-
-}
-
-
 </script>

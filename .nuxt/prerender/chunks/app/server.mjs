@@ -1,4 +1,4 @@
-import { version, unref, inject, ref, defineComponent, computed, openBlock, createElementBlock, mergeProps, renderSlot, createBlock, resolveDynamicComponent, withCtx, Fragment, normalizeClass, createCommentVNode, provide, reactive, toRef as toRef$1, useSSRContext, h, Suspense, nextTick, Transition, resolveComponent, warn, useSlots, Text, createTextVNode, toDisplayString, createVNode, shallowReactive, createApp, hasInjectionContext, getCurrentInstance, watch, isRef, onErrorCaptured, onServerPrefetch, shallowRef, isReadonly, readonly, customRef, defineAsyncComponent, isShallow, isReactive, toRaw, watchEffect, createElementVNode, getCurrentScope, onScopeDispose } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/vue/index.mjs';
+import { version, unref, inject, ref, defineComponent, computed, openBlock, createElementBlock, mergeProps, renderSlot, createBlock, resolveDynamicComponent, withCtx, Fragment, normalizeClass, createCommentVNode, provide, reactive, toRef as toRef$1, useSSRContext, h, Suspense, nextTick, Transition, resolveComponent, warn, useSlots, Text, isRef, createTextVNode, toDisplayString, createVNode, shallowReactive, createApp, hasInjectionContext, getCurrentInstance, watch, readonly, customRef, shallowRef, onErrorCaptured, onServerPrefetch, isReadonly, watchEffect, defineAsyncComponent, isShallow, isReactive, toRaw, getCurrentScope, onScopeDispose, createElementVNode } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/vue/index.mjs';
 import { $fetch } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/ofetch/dist/node.mjs';
 import { createHooks } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/hookable/dist/index.mjs';
 import { getContext } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/unctx/dist/index.mjs';
@@ -9,7 +9,7 @@ import { RouterView, createMemoryHistory, createRouter, START_LOCATION, useRoute
 import { createError as createError$1, sanitizeStatusCode } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/h3/dist/index.mjs';
 import { hasProtocol, parseURL, parseQuery, withTrailingSlash, withoutTrailingSlash, withQuery, isScriptProtocol, joinURL } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/ufo/dist/index.mjs';
 import { createI18n } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/vue-i18n/dist/vue-i18n.mjs';
-import { ssrRenderAttrs, ssrRenderList, ssrRenderComponent, ssrInterpolate, ssrRenderSuspense, ssrRenderVNode } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/vue/server-renderer/index.mjs';
+import { ssrRenderList, ssrRenderComponent, ssrInterpolate, ssrRenderSuspense, ssrRenderVNode, ssrRenderAttrs } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/vue/server-renderer/index.mjs';
 import { fromPairs } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/lodash-unified/import.js';
 import { isString, isObject as isObject$1, hasOwn, NOOP } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/@vue/shared/index.js';
 import { TinyColor } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/@ctrl/tinycolor/dist/public_api.js';
@@ -700,7 +700,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/contact-891dcd2e.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/contact-e7db4868.mjs').then((m) => m.default || m)
   },
   {
     path: "/",
@@ -734,7 +734,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-e934db56.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-6c1cad00.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -2080,7 +2080,7 @@ function useDark(options = {}) {
       light: valueLight
     }
   });
-  const isDark = computed({
+  const isDark2 = computed({
     get() {
       return mode.value === "dark";
     },
@@ -2092,25 +2092,31 @@ function useDark(options = {}) {
         mode.value = modeVal;
     }
   });
-  return isDark;
+  return isDark2;
 }
+const links = [
+  { name: "home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Contact Me", href: "/contact" }
+];
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
+const myInfo = [
+  { title: "Phone", data: "096 834 125" },
+  { title: "Email", data: "senghonghang@gmail.com" },
+  { title: "Address", data: "Kampong Cham" }
+];
 const _sfc_main$4 = /* @__PURE__ */ defineComponent({
   __name: "NavBar",
   __ssrInlineRender: true,
   setup(__props) {
     ref("");
-    const isDark = useDark();
-    const toggleDark = useToggle(isDark);
-    const links = [
-      { name: "home", href: "/" },
-      { name: "About", href: "/about" },
-      { name: "Contact Us", href: "/contact" }
-    ];
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0;
       const _component_el_button = ElButton;
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "md:flex hidden w-full bg-gray-200 text-gray-800 dark:bg-gray-900 border-b-[0.5px] dark:text-white justify-center px-10 py-2 space-x-4 sticky top-0 z-[2]" }, _attrs))}><div class="w-full flex justify-center"><!--[-->`);
-      ssrRenderList(links, (link, index) => {
+      const _component_nuxt_link = __nuxt_component_0;
+      _push(`<!--[--><div class="md:flex hidden w-full bg-gray-200 text-gray-800 dark:bg-gray-900 border-b-[0.5px] dark:text-white justify-center px-10 py-2 space-x-4 sticky top-0 z-[2]"><div class="w-full flex justify-center"><!--[-->`);
+      ssrRenderList(unref(links), (link, index) => {
         _push(ssrRenderComponent(_component_NuxtLink, {
           to: link.href,
           onClick: ($event) => console.log(_ctx.$route.matched[0].path),
@@ -2150,7 +2156,26 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
         }),
         _: 1
       }, _parent));
-      _push(`</div>`);
+      _push(`</div><div class="md:hidden justify-center items-center flex w-full p-2 fixed z-10 bottom-0 bg-gray-800 text-white font-bold"><!--[-->`);
+      ssrRenderList(unref(links), (link) => {
+        _push(ssrRenderComponent(_component_nuxt_link, {
+          to: link.href,
+          key: link.name,
+          class: ["w-full flex justify-evenly", { "text-green-500": _ctx.$route.path === link.href }]
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`<span${_scopeId}>${ssrInterpolate(link.name)}</span>`);
+            } else {
+              return [
+                createVNode("span", null, toDisplayString(link.name), 1)
+              ];
+            }
+          }),
+          _: 2
+        }, _parent));
+      });
+      _push(`<!--]--></div><!--]-->`);
     };
   }
 });
@@ -2550,5 +2575,5 @@ let entry;
 }
 const entry$1 = (ctx) => entry(ctx);
 
-export { _export_sfc as _, __nuxt_component_0 as a, __nuxt_component_1 as b, createError as c, entry$1 as default, injectHead as i, resolveUnrefHeadInput as r };
+export { _export_sfc as _, __nuxt_component_0 as a, __nuxt_component_1 as b, createError as c, entry$1 as default, injectHead as i, myInfo as m, resolveUnrefHeadInput as r };
 //# sourceMappingURL=server.mjs.map

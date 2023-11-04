@@ -1,1 +1,0 @@
-{"version":3,"file":"contact-891dcd2e.js","sources":["../../../../pages/contact.vue"],"sourcesContent":["<template>\r\n  \r\n</template>\r\n<script setup lang=\"ts\" >\r\nimport { ref } from \"vue\"\r\nconst input = ref(\"\")\r\n</script>"],"names":[],"mappings":";;;;;AAKc,QAAI,EAAE;;;;;;;;;;;"}
