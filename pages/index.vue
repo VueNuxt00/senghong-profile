@@ -24,10 +24,10 @@
             <div v-for="(skill, index) in skills" :key="index" @click="openFullImage()"
                 class="md:min-w-[400px] w-[350px] group  max-w-md myanimation relative overflow-hidden h-[200px] dark:bg-gray-700 px-4 bg-gray-200 rounded-md mx-2 my-2 flex justify-center border-2 hover:shadow-md shadow-blue-400 border-transparent hover:border-green-500  items-center">
                 <img :src="skill.bg"
-                    class="h-full group-hover:scale-125 group-hover:opacity-70 w-full group-hover:duration-[1s] rounded-md absolute" alt="">
+                    class="h-full group-hover:scale-125 group-hover:opacity-70 w-full group-hover:duration-[1s] rounded-md absolute"
+                    alt="">
                 <!-- <FullImage :imageUrl="skill.bg" /> -->
-                <h2
-                    class="text-white text-3xl group-hover:text-4xl group-hover:text-red-400 font-bold z-[1]">
+                <h2 class="text-white text-3xl group-hover:text-4xl group-hover:text-red-400 font-bold z-[1]">
                     {{ skill.name }}</h2>
             </div>
         </div>
