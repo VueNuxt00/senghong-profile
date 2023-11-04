@@ -1,6 +1,6 @@
 <template>
-    <div class="w-full p-4 flex justify-start space-x-2 items-start dark:text-white  relative ">
-        <div class="flex flex-col space-y-4 dark:bg-gray-800 bg-gray-200 w-[200px] p-2 rounded-md  sticky top-0">
+    <div class="w-full p-4 flex md:flex-row flex-col justify-start space-x-2 items-start dark:text-white  relative ">
+        <div class="flex md:flex-col flex-row space-y-4 dark:bg-gray-800 bg-gray-200 w-[200px] p-2 rounded-md  sticky top-0">
             <button @click="changeSection(index)" v-for="(link, index) in links" :key="index" class=" px-2 py-1 rounded-sm"
                 :class="{ 'bg-gray-600': item === index }">
                 {{ link.name }}
@@ -11,7 +11,8 @@
 
             <div v-if="item === 1">
                 <h2>Hello Vue3 js</h2>
-                <a href="https://vuejs.org/"  target="_blank" class=" text-green-500 underline hover:text-green-400">Go to vue web site for tutorial</a>
+                <a href="https://vuejs.org/" target="_blank" class=" text-green-500 underline hover:text-green-400">Go to
+                    vue web site for tutorial</a>
             </div>
             <div v-else-if="item === 2">
                 Hello Nuxt3 js

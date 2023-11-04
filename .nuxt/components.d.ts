@@ -3,6 +3,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     'FieldForm': typeof import("../components/FieldForm.vue")['default']
     'Footer': typeof import("../components/Footer.vue")['default']
+    'FullImage': typeof import("../components/FullImage.vue")['default']
     'NavBar': typeof import("../components/NavBar.vue")['default']
     'NuxtWelcome': typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
     'NuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
@@ -415,6 +416,7 @@ declare module 'vue' {
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'LazyFieldForm': typeof import("../components/FieldForm.vue")['default']
     'LazyFooter': typeof import("../components/Footer.vue")['default']
+    'LazyFullImage': typeof import("../components/FullImage.vue")['default']
     'LazyNavBar': typeof import("../components/NavBar.vue")['default']
     'LazyNuxtWelcome': typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
     'LazyNuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
@@ -830,6 +832,7 @@ declare module 'vue' {
 
 export const FieldForm: typeof import("../components/FieldForm.vue")['default']
 export const Footer: typeof import("../components/Footer.vue")['default']
+export const FullImage: typeof import("../components/FullImage.vue")['default']
 export const NavBar: typeof import("../components/NavBar.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
 export const NuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
@@ -1242,6 +1245,7 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const LazyFieldForm: typeof import("../components/FieldForm.vue")['default']
 export const LazyFooter: typeof import("../components/Footer.vue")['default']
+export const LazyFullImage: typeof import("../components/FullImage.vue")['default']
 export const LazyNavBar: typeof import("../components/NavBar.vue")['default']
 export const LazyNuxtWelcome: typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
 export const LazyNuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']

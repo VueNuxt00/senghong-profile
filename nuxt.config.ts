@@ -10,7 +10,14 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  app:{
-    
-  }
+  hooks: {
+    async "nitro:config"(nitroConfig) {
+      if (nitroConfig.dev) {
+        return;
+      }
+      // ..Async logic..
+      nitroConfig.prerender.routes.push("/index");
+    },
+  },
+  app: {},
 });

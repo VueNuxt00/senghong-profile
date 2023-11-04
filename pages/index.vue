@@ -20,12 +20,14 @@
         </div>
         <!-- Skill -->
         <div class="flex w-full justify-center  flex-wrap items-center md:p-10 p-4">
-            <div v-for="(skill, index) in skills" :key="index"
+
+            <div v-for="(skill, index) in skills" :key="index" @click="openFullImage()"
                 class="md:min-w-[400px] w-[350px] group  max-w-md myanimation relative overflow-hidden h-[200px] dark:bg-gray-700 px-4 bg-gray-200 rounded-md mx-2 my-2 flex justify-center border-2 hover:shadow-md shadow-blue-400 border-transparent hover:border-green-500  items-center">
                 <img :src="skill.bg"
-                    class="h-full group-hover:scale-105 w-full group-hover:duration-[1s] rounded-md absolute" alt="">
+                    class="h-full group-hover:scale-125 group-hover:opacity-70 w-full group-hover:duration-[1s] rounded-md absolute" alt="">
+                <!-- <FullImage :imageUrl="skill.bg" /> -->
                 <h2
-                    class="text-white text-3xl group-hover:text-4xl group-hover:duration-[1s] group-hover:animate-pulse font-bold z-[1]">
+                    class="text-white text-3xl group-hover:text-4xl group-hover:text-red-400 font-bold z-[1]">
                     {{ skill.name }}</h2>
             </div>
         </div>
@@ -48,16 +50,22 @@
 <script setup lang="ts">
 
 
-import senghong from '~/images/senghong.jpg';
 import javascript from "~/assets/images/javascript.png";
 import flutter from "~/assets/images/flutter.png";
 import python from "~/assets/images/python.png";
+
+
 // import {skills} from ".fullcion1"
 const links = [
     { name: "Javascript", link: '/', img: javascript },
     { name: "Flutter", link: '/flutter', img: flutter },
     { name: "Python", link: '/python', img: python },
 ]
+
+const openFullImage = () => {
+    // alert("Open Full Image")
+}
+
 const skills = [
     {
         name: "Web Development",
@@ -73,13 +81,13 @@ const skills = [
     {
         name: "Design UI/UX",
         program: ["Node js", "Vue Js", "Nuxt Js"],
-        bg: "https://blogassets.leverageedu.com/blog/wp-content/uploads/2020/07/30182024/UX-UI-Design.jpg",
+        bg: "https://img.freepik.com/free-vector/gradient-style-ui-ux-background_52683-69621.jpg",
     },
-    {
-        name: "Machine Learning (ML)",
-        program: ["Node js", "Vue Js", "Nuxt Js"],
-        bg: "https://www.simplilearn.com/ice9/free_resources_article_thumb/Deep-Learning-vs-Machine-Learning.jpg",
-    },
+    // {
+    //     name: "Machine Learning (ML)",
+    //     program: ["Node js", "Vue Js", "Nuxt Js"],
+    //     bg: "https://www.simplilearn.com/ice9/free_resources_article_thumb/Deep-Learning-vs-Machine-Learning.jpg",
+    // },
 ];
 
 
