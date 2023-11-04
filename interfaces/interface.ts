@@ -15,7 +15,7 @@ export const isDark = useDark();
 export const toggleDark = useToggle(isDark);
 
 export const myInfo = [
-  { title: "Phone", data: "096 834 125" },
+  { title: "Phone", data: "096 863 4125" },
   { title: "Email", data: "senghonghang@gmail.com" },
   { title: "Address", data: "Kampong Cham" },
 ];

@@ -22,7 +22,8 @@
                     </div>
                     <!-- button -->
                     <div class=" absolute top-[480px] text-white h-full md:right-[-20px]">
-                        <button class="px-4 py-1.5 bg-yellow-500 rounded-md">Submit</button>
+                        <button class="px-4 py-1.5 bg-yellow-500 rounded-md"
+                            @click=" meme === 'test' ? open2() : open3()">Submit</button>
                     </div>
                 </div>
             </div>
@@ -31,6 +32,21 @@
 </template>
 <script setup lang="ts" >
 import { myInfo } from '~~/interfaces/interface'
-import { ref } from "vue"
-const input = ref("")
+import { ElMessage } from 'element-plus'
+import { ref } from 'vue'
+const meme = ref<string>("test")
+
+const open2 = () => {
+    ElMessage({
+        message: 'Message has been sent',
+        type: 'success',
+       
+    })
+}
+const open3 = () => {
+    ElMessage({
+        message: 'Please try again',
+        type: 'error',
+    })
+}
 </script>

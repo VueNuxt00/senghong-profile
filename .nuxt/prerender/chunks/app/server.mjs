@@ -700,7 +700,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/contact-e7db4868.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/contact-6d99b666.mjs').then((m) => m.default || m)
   },
   {
     path: "/",
@@ -2102,7 +2102,7 @@ const links = [
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
 const myInfo = [
-  { title: "Phone", data: "096 834 125" },
+  { title: "Phone", data: "096 863 4125" },
   { title: "Email", data: "senghonghang@gmail.com" },
   { title: "Address", data: "Kampong Cham" }
 ];
