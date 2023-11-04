@@ -1,6 +1,6 @@
 <template>
     <div
-        class="flex  w-full bg-gray-200 text-gray-800  dark:bg-gray-900 border-b-[0.5px] dark:text-white justify-center px-10 py-2 space-x-4 sticky top-0 z-[2]">
+        class="md:flex hidden w-full bg-gray-200 text-gray-800  dark:bg-gray-900 border-b-[0.5px] dark:text-white justify-center px-10 py-2 space-x-4 sticky top-0 z-[2]">
         <div class="w-full flex justify-center">
             <NuxtLink :to="link.href" @click="console.log($route.matched[0].path)" v-for="(link, index) in links"
                 :key="index" class="  rounded-md px-3 py-1"
@@ -8,7 +8,7 @@
                     link.name }}</NuxtLink>
 
         </div>
-       
+
         <!-- Switch button -->
         <el-button type="success" @click="toggleDark()">
             <i inline-block align-middle i="dark:carbon-moon carbon-sun" />
