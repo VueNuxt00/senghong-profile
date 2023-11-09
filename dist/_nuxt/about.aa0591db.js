@@ -1,1 +1,0 @@
-import{_ as t,c as e,o}from"./entry.c5a4ff80.js";const c={},s={class:"text-2xl font-bold dark:text-white"};function a(n,r){return o(),e("div",s," absolute ")}const l=t(c,[["render",a]]);export{l as default};

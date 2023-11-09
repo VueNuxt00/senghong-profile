@@ -1,6 +1,6 @@
 <template>
     <div class="flex w-full justify-center items-center lg:p-10 ">
-        <form method="POST" @submit.prevent="submit">
+        <form method="POST" @submit.prevent="submit" class="w-full flex h-full justify-center">
             <div
                 class="w-[700px] relative my_animated dark:bg-gray-800 bg-gray-300 h-screen justify-center flex items-center rounded-[10px] my-5 sm:mt-0">
                 <!--  -->
@@ -52,8 +52,9 @@
                         </div>
                         <!-- button -->
                         <div class=" absolute top-[480px] text-white h-full md:right-[-20px]">
-                            <button class="px-4 py-1.5 bg-yellow-500 rounded-md" type="submit" :disabled="isLoading" :class="{'bg-gray-400':isLoading}"><span
-                                    v-if="isLoading">Sending...</span><span v-else>Submit</span></button>
+                            <button class="px-4 py-1.5 bg-yellow-500 rounded-md" type="submit" :disabled="isLoading"
+                                :class="{ 'bg-gray-400': isLoading }"><span v-if="isLoading">Sending...</span><span
+                                    v-else>Submit</span></button>
                         </div>
 
                     </div>
