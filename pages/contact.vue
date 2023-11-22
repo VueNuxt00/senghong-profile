@@ -2,7 +2,7 @@
     <div class="flex w-full justify-center items-center lg:p-10 ">
         <form method="POST" @submit.prevent="submit" class="w-full flex h-full justify-center">
             <div
-                class="w-[700px] relative my_animated dark:bg-gray-800 bg-gray-300 h-screen justify-center flex items-center rounded-[10px] my-5 sm:mt-0">
+                class="w-[700px]  relative my_animated dark:bg-gray-800 bg-gray-300 h-screen justify-center flex items-center rounded-[10px] my-5 sm:mt-0">
                 <!--  -->
                 <div class="dark:text-white absolute top-5 md:top-15 font-bold text-2xl md:text-4xl hover:underline">Contact
                     Me
@@ -40,7 +40,7 @@
                             <div class="flex flex-col space-y-0">
                                 <label for="name">Phone</label>
                                 <input type="number" placeholder="enter phone number" v-model="Info.phone"
-                                    class="px-1 rounded-md  outline-none focus:ring-yellow py-1 ring-1 ring-green-500">
+                                    class="px-1 rounded-md  outline-none focus:ring-yellow appearance-none py-1 ring-1 ring-green-500">
                             </div>
                             <div class="flex flex-col space-y-0">
                                 <label for="name">Message</label>
