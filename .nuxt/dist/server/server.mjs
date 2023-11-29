@@ -674,20 +674,12 @@ const __nuxt_page_meta = {
 };
 const _routes = [
   {
-    name: "about",
-    path: "/about",
-    meta: {},
-    alias: [],
-    redirect: void 0,
-    component: () => import("./_nuxt/about-f4e77f5c.js").then((m) => m.default || m)
-  },
-  {
     name: "contact",
     path: "/contact",
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/contact-64a1c6b1.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/contact-c241d97c.js").then((m) => m.default || m)
   },
   {
     path: "/",
@@ -722,6 +714,14 @@ const _routes = [
     alias: [],
     redirect: void 0,
     component: () => import("./_nuxt/index-acbf0730.js").then((m) => m.default || m)
+  },
+  {
+    name: "skill",
+    path: "/skill",
+    meta: {},
+    alias: [],
+    redirect: void 0,
+    component: () => import("./_nuxt/skill-721830b0.js").then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -2085,7 +2085,7 @@ function useDark(options = {}) {
 }
 const links = [
   { name: "home", href: "/" },
-  { name: "About", href: "/about" },
+  { name: "Skills", href: "/skill" },
   { name: "Contact Me", href: "/contact" }
 ];
 const isDark = useDark();

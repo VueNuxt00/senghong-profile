@@ -6,7 +6,7 @@ type typLink = {
 };
 export const links: typLink[] = [
   { name: "home", href: "/" },
-  { name: "About", href: "/about" },
+  { name: "Skills", href: "/skill" },
   { name: "Contact Me", href: "/contact" },
 ];
 

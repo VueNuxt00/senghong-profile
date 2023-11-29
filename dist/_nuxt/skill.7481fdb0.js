@@ -1,0 +1,1 @@
+import{_ as t,c as o,o as s,V as a,a as e}from"./entry.eb0626ed.js";const c={},r=e("div",{class:"text-2xl font-bold dark:text-white"}," Skill Page ",-1),n=e("iframe",{src:"https://www.youtube.com/",frameborder:"0"},null,-1);function l(_,d){return s(),o(a,null,[r,n],64)}const f=t(c,[["render",l]]);export{f as default};

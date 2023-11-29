@@ -1,6 +1,6 @@
 <template>
     <div class="flex w-full justify-center items-center lg:p-10 ">
-        <form method="POST" @submit.prevent="submit" class="w-full flex h-full justify-center">
+        <form method="POST" @submit.prevent="AddMessage" class="w-full flex h-full justify-center">
             <div
                 class="w-[700px]  relative my_animated dark:bg-gray-800 bg-gray-300 h-screen justify-center flex items-center rounded-[10px] my-5 sm:mt-0">
                 <!--  -->
@@ -65,10 +65,9 @@
 </template>
 <script setup lang="ts" >
 import { myInfo } from '~~/interfaces/interface'
-import { ElMessage } from 'element-plus'
+import { ErrorMessage, SuccessMessage } from '~/utils/message'
 import axios from "axios";
 import { ref } from 'vue'
-const meme = ref<string>("test")
 const isLoading = ref<boolean>(false)
 interface myInfo {
     name: string,
@@ -85,23 +84,10 @@ const Info = reactive<myInfo>({
 })
 
 
-const open2 = () => {
-    ElMessage({
-        message: 'Message has been sent',
-        type: 'success',
-
-    })
-}
-const open3 = (error: any) => {
-    ElMessage({
-        message: error,
-        type: 'error',
-    })
-}
 
 const chatID: number = 947503787
 const token = "6729315582:AAEh0uM15vNhvEF9-qRyGHRGzTa24TnqSdo"
-const submit = async () => {
+const AddMessage = async () => {
     isLoading.value = true
     try {
 
@@ -109,14 +95,19 @@ const submit = async () => {
             const messages: string = `Name: ${Info.name} \n Email: ${Info.email} \n Phone: ${Info.phone} \n Message: ${Info.message}`;
             const api: string = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatID}&text=${messages}`
             await axios.post(api)
-            open2()
+            SuccessMessage()
             isLoading.value = false
+            Info.email = ''
+            Info.name = ''
+            Info.message = ''
+            Info.phone = null
+
         } else {
-            open3("Please enter valid values")
+            ErrorMessage("Please enter valid values")
             isLoading.value = false
         }
     } catch (error) {
-        open3(error)
+        ErrorMessage(error)
     }
 }
 </script>

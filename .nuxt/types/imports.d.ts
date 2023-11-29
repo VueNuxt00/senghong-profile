@@ -298,6 +298,8 @@ declare global {
   const ElMessage: typeof import('../../node_modules/element-plus')['ElMessage']
   const ElMessageBox: typeof import('../../node_modules/element-plus')['ElMessageBox']
   const ElNotification: typeof import('../../node_modules/element-plus')['ElNotification']
+  const ErrorMessage: typeof import('../../utils/message')['ErrorMessage']
+  const SuccessMessage: typeof import('../../utils/message')['SuccessMessage']
   const abortNavigation: typeof import('../../node_modules/nuxt/dist/app')['abortNavigation']
   const addRouteMiddleware: typeof import('../../node_modules/nuxt/dist/app')['addRouteMiddleware']
   const asyncComputed: typeof import('../../node_modules/@vueuse/core')['asyncComputed']
@@ -949,6 +951,8 @@ declare module 'vue' {
     readonly ElMessage: UnwrapRef<typeof import('../../node_modules/element-plus')['ElMessage']>
     readonly ElMessageBox: UnwrapRef<typeof import('../../node_modules/element-plus')['ElMessageBox']>
     readonly ElNotification: UnwrapRef<typeof import('../../node_modules/element-plus')['ElNotification']>
+    readonly ErrorMessage: UnwrapRef<typeof import('../../utils/message')['ErrorMessage']>
+    readonly SuccessMessage: UnwrapRef<typeof import('../../utils/message')['SuccessMessage']>
     readonly abortNavigation: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['abortNavigation']>
     readonly addRouteMiddleware: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['addRouteMiddleware']>
     readonly asyncComputed: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['asyncComputed']>
@@ -1594,6 +1598,8 @@ declare module '@vue/runtime-core' {
     readonly ElMessage: UnwrapRef<typeof import('../../node_modules/element-plus')['ElMessage']>
     readonly ElMessageBox: UnwrapRef<typeof import('../../node_modules/element-plus')['ElMessageBox']>
     readonly ElNotification: UnwrapRef<typeof import('../../node_modules/element-plus')['ElNotification']>
+    readonly ErrorMessage: UnwrapRef<typeof import('../../utils/message')['ErrorMessage']>
+    readonly SuccessMessage: UnwrapRef<typeof import('../../utils/message')['SuccessMessage']>
     readonly abortNavigation: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['abortNavigation']>
     readonly addRouteMiddleware: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['addRouteMiddleware']>
     readonly asyncComputed: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['asyncComputed']>
