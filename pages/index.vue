@@ -1,10 +1,7 @@
 <template>
-    <div class="flex flex-col items-center w-full h-full justify-center sticky top-0 z-[1] m-0">
+    <div class="flex flex-col items-center w-full h-full justify-center sticky top-0 z-[1] m-0 md:px-[80px]">
         <div class="w-full flex justify-center flex-wrap p-5 space-x-4 items-center px-20 dark:text-gray-300">
-
-
             <div class="w-[200px] auto rounded-full">
-
             </div>
             <div>
                 <div class="mb-2">
@@ -31,7 +28,7 @@
                     {{ skill.name }}</h2>
             </div>
         </div>
-
+        <!-- 
         <div class="flex justify-start items-center px-10 py-2 bg-gray-600 dark:bg-gray-900 w-full m-0  space-x-5 ">
             <NuxtLink class="text-white rounded-md px-3 py-1.5" :to="link.link"
                 :class="{ 'border ': $route.path === link.link }" v-for="(link, index) in links" :key="index">
@@ -41,10 +38,18 @@
                 </div>
             </NuxtLink>
 
-        </div>
-        <div class=" w-full px-10  py-5">
+        </div> -->
+        <!-- <div class=" w-full px-10  py-5">
             <NuxtPage />
+        </div> -->
+        <!-- Contact Me -->
+
+        <div
+            class="dark:text-gray-50 text-2xl flex w-full font-medium border-b dark:border-gray-400 dark:hover:text-green-600">
+            {{ `constact me`.toUpperCase() }}
         </div>
+
+
     </div>
 </template>
 <script setup lang="ts">
