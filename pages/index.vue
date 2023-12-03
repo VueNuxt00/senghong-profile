@@ -2,10 +2,10 @@
     <div class="flex flex-col items-center w-full justify-center  top-0  m-0 md:px-[80px]">
 
         <div class="flex justify-between items-start w-full space-x-2 h-full mt-4">
-            <div class="myanimation w-2/4 h-[500px] border-2 rounded-md overflow-hidden">
+            <div class="myanimation w-[436px] h-[562px] border-[2px] border-green-600 rounded-md overflow-hidden">
                 <img class=" w-full h-full object-cover" src="~~/assets/images/senghongpic.jpg" alt="">
             </div>
-            <div class="w-full">
+            <div class="flex-1">
                 <span class=" dark:text-gray-100 text-[120px] font-[Roboto]">
                     {{ `seng hong`.toUpperCase() }}
                 </span>

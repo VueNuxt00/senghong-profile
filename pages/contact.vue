@@ -31,6 +31,8 @@
                                 <label for="name">Your Name</label>
                                 <input type="text" placeholder="enter name" v-model="Info.name"
                                     class="px-1 rounded-md  outline-none focus:ring-yellow py-1 ring-1 ring-green-500">
+                                <p v-if="errorMessage" class="text-sm text-red-400">{{ errorMessage }}</p>
+                                <p v-else></p>
                             </div>
                             <div class="flex flex-col space-y-0">
                                 <label for="email">Email</label>
@@ -69,6 +71,7 @@ import { ErrorMessage, SuccessMessage } from '~/utils/message'
 import axios from "axios";
 import { ref } from 'vue'
 const isLoading = ref<boolean>(false)
+const errorMessage = ref()
 interface myInfo {
     name: string,
     email: string,
@@ -83,11 +86,20 @@ const Info = reactive<myInfo>({
     message: '',
 })
 
+onMounted(() => {
+    //    return errorMessage.value
+})
+
+
 
 
 const chatID: number = 947503787
 const token = "6729315582:AAEh0uM15vNhvEF9-qRyGHRGzTa24TnqSdo"
 const AddMessage = async () => {
+    if (!Info.name.trim()) {
+        errorMessage.value = 'Please enter a value';
+        return;
+    }
     isLoading.value = true
     try {
 

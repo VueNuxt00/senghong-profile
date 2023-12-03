@@ -1,1 +1,0 @@
-import{_ as e,c as t,o,a as s}from"./entry.dd4207df.js";const c={},r={class:"w-full rounded-md dark:bg-gray-800 dark:text-white p-5"},a=s("h2",null,"Flutter Page",-1),n=[a];function _(d,l){return o(),t("div",r,n)}const i=e(c,[["render",_]]);export{i as default};

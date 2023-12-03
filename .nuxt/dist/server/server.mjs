@@ -679,7 +679,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/contact-aad3e539.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/contact-17056a79.js").then((m) => m.default || m)
   },
   {
     path: "/",
@@ -713,7 +713,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/index-a01b9bca.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index-28523ce5.js").then((m) => m.default || m)
   },
   {
     name: "skill",
