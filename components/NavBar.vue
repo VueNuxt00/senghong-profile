@@ -8,13 +8,12 @@
                     link.name }}</NuxtLink>
 
         </div>
-
         <!-- Switch button -->
-        <el-button type="success" @click="toggleDark()">
-            <i inline-block align-middle i="dark:carbon-moon carbon-sun" />
-            <span class="ml-2">{{ isDark ? 'Dark' : 'Light' }}</span>
-        </el-button>
-
+        <el-tooltip :content="value + ' Mode'" placement="top">
+            <el-switch v-model="value" @click="toggleDark()"
+                style=" --el-switch-on-color:  #00b058; --el-switch-off-color: #6C6464; --el-switch-border-color:#0803FF"
+                active-value="Dark" inactive-value="Light" />
+        </el-tooltip>
     </div>
     <div
         class="md:hidden justify-center items-center  flex w-full p-2 fixed z-10 bottom-0 bg-gray-800 text-white font-bold">

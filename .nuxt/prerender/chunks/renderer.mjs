@@ -8,24 +8,6 @@ import { u as useNitroApp, a as useRuntimeConfig, b as useStorage, g as getRoute
 import { version, unref } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/vue/index.mjs';
 import { createServerHead as createServerHead$1 } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/unhead/dist/index.mjs';
 import { defineHeadPlugin } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/@unhead/shared/dist/index.mjs';
-import 'file://D:/My%20Projects/VueProjects/senghong/node_modules/node-fetch-native/dist/polyfill.mjs';
-import 'file://D:/My%20Projects/VueProjects/senghong/node_modules/ofetch/dist/node.mjs';
-import 'file://D:/My%20Projects/VueProjects/senghong/node_modules/destr/dist/index.mjs';
-import 'file://D:/My%20Projects/VueProjects/senghong/node_modules/unenv/runtime/fetch/index.mjs';
-import 'file://D:/My%20Projects/VueProjects/senghong/node_modules/hookable/dist/index.mjs';
-import 'file://D:/My%20Projects/VueProjects/senghong/node_modules/scule/dist/index.mjs';
-import 'file://D:/My%20Projects/VueProjects/senghong/node_modules/klona/dist/index.mjs';
-import 'file://D:/My%20Projects/VueProjects/senghong/node_modules/defu/dist/defu.mjs';
-import 'file://D:/My%20Projects/VueProjects/senghong/node_modules/ohash/dist/index.mjs';
-import 'file://D:/My%20Projects/VueProjects/senghong/node_modules/unstorage/dist/index.mjs';
-import 'file://D:/My%20Projects/VueProjects/senghong/node_modules/unstorage/drivers/fs.mjs';
-import 'file://D:/My%20Projects/VueProjects/senghong/node_modules/unstorage/drivers/memory.mjs';
-import 'file://D:/My%20Projects/VueProjects/senghong/node_modules/unstorage/drivers/lru-cache.mjs';
-import 'file://D:/My%20Projects/VueProjects/senghong/node_modules/unstorage/drivers/fs-lite.mjs';
-import 'file://D:/My%20Projects/VueProjects/senghong/node_modules/radix3/dist/index.mjs';
-import 'node:fs';
-import 'node:url';
-import 'file://D:/My%20Projects/VueProjects/senghong/node_modules/pathe/dist/index.mjs';
 
 function defineRenderHandler(handler) {
   return eventHandler(async (event) => {
@@ -421,5 +403,10 @@ function splitPayload(ssrContext) {
   };
 }
 
-export { renderer as default };
+const renderer$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: renderer
+});
+
+export { buildAssetsURL as b, renderer$1 as r };
 //# sourceMappingURL=renderer.mjs.map

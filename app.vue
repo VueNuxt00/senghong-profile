@@ -3,7 +3,7 @@
     <!-- Nav bar -->
     <NavBar />
     <!-- Main content -->
-    <div class=" dark:bg-gray-900 min-h-screen relative m-0 ">
+    <div class=" dark:bg-gray-900 w-full  relative m-0 ">
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
