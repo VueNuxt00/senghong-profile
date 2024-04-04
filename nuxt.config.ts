@@ -1,8 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
-  modules: ["@element-plus/nuxt", "@vueuse/nuxt"],
-
+  modules: ["@element-plus/nuxt", "@vueuse/nuxt", '@nuxtjs/i18n'],
+ 
   devtools: { enabled: true },
   postcss: {
     plugins: {
@@ -16,7 +16,6 @@ export default defineNuxtConfig({
         return;
       }
       // ..Async logic..
-      nitroConfig.prerender.routes.push("/");
     },
   },
   app: {},

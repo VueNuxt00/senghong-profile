@@ -1,5 +1,5 @@
 <template>
-    <div class="flex w-full justify-center items-center lg:p-10 ">
+    <div class="flex w-full justify-center items-center lg:p-10">
         <form method="POST" @submit.prevent="AddMessage" class="w-full flex h-full justify-center">
             <div
                 class="w-[700px]  relative my_animated dark:bg-gray-800 bg-gray-300 h-screen justify-center flex items-center rounded-[10px] my-5 sm:mt-0">
@@ -18,7 +18,8 @@
                                 <div v-for="(info, index) in myInfo" :key="index" class=" space-x-2">
                                     <span class="text-md font-medium">{{ info.title
                                     }}:</span>
-                                    <span v-if="index === 1" class="text-blue-600"><a :href="info.data">{{ info.data
+                                    <span v-if="index === 1" class="text-blue-600"><a @click="">{{
+                                        info.data
                                     }}</a></span>
                                     <span v-else>{{ info.data }}</span>
                                 </div>
@@ -38,6 +39,8 @@
                                 <label for="email">Email</label>
                                 <input type="text" placeholder="enter your email address" v-model="Info.email"
                                     class="px-1 rounded-md  outline-none focus:ring-yellow py-1 ring-1 ring-green-500">
+                                <!-- <FieldForm :model="Info.email" :placeholder="'Enter email address'" :label="'Email'">
+                                </FieldForm> -->
                             </div>
                             <div class="flex flex-col space-y-0">
                                 <label for="name">Phone</label>
@@ -63,10 +66,13 @@
                 </div>
             </div>
         </form>
+
     </div>
+
 </template>
 <script setup lang="ts" >
 import { myInfo } from '~~/interfaces/interface'
+import FieldForm from '@/components/FieldForm.vue';
 import { ErrorMessage, SuccessMessage } from '~/utils/message'
 import axios from "axios";
 import { ref } from 'vue'

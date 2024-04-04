@@ -25,7 +25,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import { links, toggleDark, isDark } from '~~/interfaces/interface'
+import { links, toggleDark, isDark } from '@/interfaces/interface'
 
 import { ref } from "vue"
 const value = ref('')
