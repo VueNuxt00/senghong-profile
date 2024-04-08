@@ -7,10 +7,9 @@ export default {
     "./plugins/**/*.{js,ts}",
     "./app.vue",
   ],
-  darkMode:['class'],
+  darkMode: ["class"],
   theme: {
     extend: {},
   },
   plugins: [],
-}
-
+};

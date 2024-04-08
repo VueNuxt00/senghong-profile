@@ -11,11 +11,26 @@
       "h3": [
         "../node_modules/h3"
       ],
+      "consola": [
+        "../node_modules/consola"
+      ],
+      "ofetch": [
+        "../node_modules/ofetch"
+      ],
       "@unhead/vue": [
         "../node_modules/@unhead/vue"
       ],
       "vue": [
         "../node_modules/vue"
+      ],
+      "@vue/runtime-core": [
+        "../node_modules/@vue/runtime-core"
+      ],
+      "@vue/compiler-sfc": [
+        "../node_modules/@vue/compiler-sfc"
+      ],
+      "@vue/runtime-dom": [
+        "../node_modules/@vue/runtime-dom"
       ],
       "vue-router": [
         "../node_modules/vue-router"
@@ -25,12 +40,6 @@
       ],
       "nuxt": [
         "../node_modules/nuxt"
-      ],
-      "consola": [
-        "../node_modules/consola"
-      ],
-      "ofetch": [
-        "../node_modules/ofetch"
       ],
       "~": [
         ".."
@@ -77,32 +86,8 @@
       "vue-demi": [
         "../node_modules/nuxt/dist/app/compat/vue-demi"
       ],
-      "vue-i18n": [
-        "../node_modules/vue-i18n/dist/vue-i18n"
-      ],
-      "@intlify/shared": [
-        "../node_modules/@intlify/shared/dist/shared"
-      ],
-      "@intlify/message-compiler": [
-        "../node_modules/@intlify/message-compiler/dist/message-compiler"
-      ],
-      "@intlify/core-base": [
-        "../node_modules/@intlify/core-base/dist/core-base"
-      ],
-      "@intlify/core": [
-        "../node_modules/@intlify/core/dist/core.node"
-      ],
-      "@intlify/utils/h3": [
-        "../node_modules/@intlify/utils/dist/h3"
-      ],
-      "ufo": [
-        "../node_modules/ufo/dist/index"
-      ],
-      "is-https": [
-        "../node_modules/is-https/dist/index"
-      ],
-      "#i18n": [
-        "../node_modules/@nuxtjs/i18n/dist/runtime/composables/index"
+      "#icon-collections": [
+        "./icon-collections"
       ],
       "#vue-router": [
         "./vue-router-stub"
@@ -148,7 +133,7 @@
     "../**/*",
     "../node_modules/@element-plus/nuxt/runtime",
     "../node_modules/@vueuse/nuxt/runtime",
-    "../node_modules/@nuxtjs/i18n/runtime",
+    "../node_modules/nuxt-icon/runtime",
     "../node_modules/@nuxt/devtools/runtime",
     "../node_modules/@nuxt/telemetry/runtime",
     ".."
@@ -158,7 +143,7 @@
     "../node_modules/nuxt/node_modules",
     "../node_modules/@element-plus/nuxt/runtime/server",
     "../node_modules/@vueuse/nuxt/runtime/server",
-    "../node_modules/@nuxtjs/i18n/runtime/server",
+    "../node_modules/nuxt-icon/runtime/server",
     "../node_modules/@nuxt/devtools/runtime/server",
     "../node_modules/@nuxt/telemetry/runtime/server",
     "../dist",

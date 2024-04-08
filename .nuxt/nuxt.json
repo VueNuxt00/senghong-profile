@@ -1,9 +1,9 @@
 {
-  "_hash": "QtMBuBLL2S",
+  "_hash": "lL9vMVdi7e",
   "project": {
-    "rootDir": "D:/My Projects/VueProjects/senghong"
+    "rootDir": "D:/My Projects/senghong-profile"
   },
   "versions": {
-    "nuxt": "3.11.1"
+    "nuxt": "3.11.2"
   }
 }

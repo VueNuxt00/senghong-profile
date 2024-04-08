@@ -3,29 +3,29 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { mkdirSync } from 'node:fs';
 import { parentPort, threadId } from 'node:worker_threads';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, fetchWithEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, createError, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getRequestHeaders, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getRouterParam, getQuery as getQuery$1, readBody, getResponseStatusText } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/h3/dist/index.mjs';
-import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { stringify, uneval } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/devalue/index.js';
-import destr from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/destr/dist/index.mjs';
-import { renderToString } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/vue/server-renderer/index.mjs';
-import { hash } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/ohash/dist/index.mjs';
-import { renderSSRHead } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/@unhead/ssr/dist/index.mjs';
-import { createFetch as createFetch$1, Headers as Headers$1 } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/ofetch/dist/node.mjs';
-import { createCall, createFetch } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/unenv/runtime/fetch/index.mjs';
-import { createHooks } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/hookable/dist/index.mjs';
-import { klona } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/klona/dist/index.mjs';
-import { snakeCase } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/scule/dist/index.mjs';
-import defu, { defuFn } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/defu/dist/defu.mjs';
-import { createStorage, prefixStorage } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/unstorage/drivers/fs.mjs';
-import { toRouteMatcher, createRouter } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/radix3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, fetchWithEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, createError, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getRequestHeaders, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getRouterParam, getQuery as getQuery$1, readBody, getResponseStatusText } from 'file://D:/My%20Projects/senghong-profile/node_modules/h3/dist/index.mjs';
+import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file://D:/My%20Projects/senghong-profile/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { stringify, uneval } from 'file://D:/My%20Projects/senghong-profile/node_modules/devalue/index.js';
+import destr from 'file://D:/My%20Projects/senghong-profile/node_modules/destr/dist/index.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, joinRelativeURL } from 'file://D:/My%20Projects/senghong-profile/node_modules/ufo/dist/index.mjs';
+import { renderToString } from 'file://D:/My%20Projects/senghong-profile/node_modules/vue/server-renderer/index.mjs';
+import { hash } from 'file://D:/My%20Projects/senghong-profile/node_modules/ohash/dist/index.mjs';
+import { renderSSRHead } from 'file://D:/My%20Projects/senghong-profile/node_modules/@unhead/ssr/dist/index.mjs';
+import { createFetch as createFetch$1, Headers as Headers$1 } from 'file://D:/My%20Projects/senghong-profile/node_modules/ofetch/dist/node.mjs';
+import { createCall, createFetch } from 'file://D:/My%20Projects/senghong-profile/node_modules/unenv/runtime/fetch/index.mjs';
+import { createHooks } from 'file://D:/My%20Projects/senghong-profile/node_modules/hookable/dist/index.mjs';
+import { klona } from 'file://D:/My%20Projects/senghong-profile/node_modules/klona/dist/index.mjs';
+import { snakeCase } from 'file://D:/My%20Projects/senghong-profile/node_modules/scule/dist/index.mjs';
+import defu, { defuFn } from 'file://D:/My%20Projects/senghong-profile/node_modules/defu/dist/defu.mjs';
+import { createStorage, prefixStorage } from 'file://D:/My%20Projects/senghong-profile/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file://D:/My%20Projects/senghong-profile/node_modules/unstorage/drivers/fs.mjs';
+import { toRouteMatcher, createRouter } from 'file://D:/My%20Projects/senghong-profile/node_modules/radix3/dist/index.mjs';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { consola } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/consola/dist/index.mjs';
-import devalue from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/@nuxt/devalue/dist/devalue.mjs';
-import { getContext } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/unctx/dist/index.mjs';
-import { version, unref } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/vue/index.mjs';
-import { createServerHead as createServerHead$1 } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/unhead/dist/index.mjs';
-import { defineHeadPlugin } from 'file://D:/My%20Projects/VueProjects/senghong/node_modules/@unhead/shared/dist/index.mjs';
+import { consola } from 'file://D:/My%20Projects/senghong-profile/node_modules/consola/dist/index.mjs';
+import { getContext } from 'file://D:/My%20Projects/senghong-profile/node_modules/unctx/dist/index.mjs';
+import { version, unref } from 'file://D:/My%20Projects/senghong-profile/node_modules/vue/index.mjs';
+import { createServerHead as createServerHead$1 } from 'file://D:/My%20Projects/senghong-profile/node_modules/unhead/dist/index.mjs';
+import { defineHeadPlugin } from 'file://D:/My%20Projects/senghong-profile/node_modules/@unhead/shared/dist/index.mjs';
 
 const r=Object.create(null),E=e=>globalThis.process?.env||globalThis._importMeta_.env||globalThis.Deno?.env.toObject()||globalThis.__env__||(e?r:globalThis),s=new Proxy(r,{get(e,o){return E()[o]??r[o]},has(e,o){const i=E();return o in i||o in r},set(e,o,i){const g=E(!0);return g[o]=i,!0},deleteProperty(e,o){if(!o)return !1;const i=E(!0);return delete i[o],!0},ownKeys(){const e=E(!0);return Object.keys(e)}}),t=typeof process<"u"&&process.env&&"development"||"",p=[["APPVEYOR"],["AWS_AMPLIFY","AWS_APP_ID",{ci:!0}],["AZURE_PIPELINES","SYSTEM_TEAMFOUNDATIONCOLLECTIONURI"],["AZURE_STATIC","INPUT_AZURE_STATIC_WEB_APPS_API_TOKEN"],["APPCIRCLE","AC_APPCIRCLE"],["BAMBOO","bamboo_planKey"],["BITBUCKET","BITBUCKET_COMMIT"],["BITRISE","BITRISE_IO"],["BUDDY","BUDDY_WORKSPACE_ID"],["BUILDKITE"],["CIRCLE","CIRCLECI"],["CIRRUS","CIRRUS_CI"],["CLOUDFLARE_PAGES","CF_PAGES",{ci:!0}],["CODEBUILD","CODEBUILD_BUILD_ARN"],["CODEFRESH","CF_BUILD_ID"],["DRONE"],["DRONE","DRONE_BUILD_EVENT"],["DSARI"],["GITHUB_ACTIONS"],["GITLAB","GITLAB_CI"],["GITLAB","CI_MERGE_REQUEST_ID"],["GOCD","GO_PIPELINE_LABEL"],["LAYERCI"],["HUDSON","HUDSON_URL"],["JENKINS","JENKINS_URL"],["MAGNUM"],["NETLIFY"],["NETLIFY","NETLIFY_LOCAL",{ci:!1}],["NEVERCODE"],["RENDER"],["SAIL","SAILCI"],["SEMAPHORE"],["SCREWDRIVER"],["SHIPPABLE"],["SOLANO","TDDIUM"],["STRIDER"],["TEAMCITY","TEAMCITY_VERSION"],["TRAVIS"],["VERCEL","NOW_BUILDER"],["VERCEL","VERCEL",{ci:!1}],["VERCEL","VERCEL_ENV",{ci:!1}],["APPCENTER","APPCENTER_BUILD_ID"],["CODESANDBOX","CODESANDBOX_SSE",{ci:!1}],["STACKBLITZ"],["STORMKIT"],["CLEAVR"],["ZEABUR"],["CODESPHERE","CODESPHERE_APP_ID",{ci:!0}],["RAILWAY","RAILWAY_PROJECT_ID"],["RAILWAY","RAILWAY_SERVICE_ID"]];function B(){if(globalThis.process?.env)for(const e of p){const o=e[1]||e[0];if(globalThis.process?.env[o])return {name:e[0].toLowerCase(),...e[2]}}return globalThis.process?.env?.SHELL==="/bin/jsh"&&globalThis.process?.versions?.webcontainer?{name:"stackblitz",ci:!1}:{name:"",ci:!1}}const l=B(),d=l.name;function n(e){return e?e!=="false":!1}const I=globalThis.process?.platform||"",T=n(s.CI)||l.ci!==!1,R=n(globalThis.process?.stdout&&globalThis.process?.stdout.isTTY);n(s.DEBUG);const C=t==="test"||n(s.TEST);n(s.MINIMAL)||T||C||!R;const a=/^win/i.test(I);!n(s.NO_COLOR)&&(n(s.FORCE_COLOR)||(R||a)&&s.TERM!=="dumb"||T);const _=(globalThis.process?.versions?.node||"").replace(/^v/,"")||null;Number(_?.split(".")[0])||null;const W=globalThis.process||Object.create(null),c={versions:{}};new Proxy(W,{get(e,o){if(o==="env")return s;if(o in e)return e[o];if(o in c)return c[o]}});const A=globalThis.process?.release?.name==="node",L=!!globalThis.Bun||!!globalThis.process?.versions?.bun,D=!!globalThis.Deno,O=!!globalThis.fastly,S=!!globalThis.Netlify,N=!!globalThis.EdgeRuntime,u=globalThis.navigator?.userAgent==="Cloudflare-Workers",b=!!globalThis.__lagon__,F=[[S,"netlify"],[N,"edge-light"],[u,"workerd"],[O,"fastly"],[D,"deno"],[L,"bun"],[A,"node"],[b,"lagon"]];function G(){const e=F.find(o=>o[0]);if(e)return {name:e[1]}}const P=G();P?.name||"";
 
@@ -101,38 +101,7 @@ const _inlineRuntimeConfig = {
       }
     }
   },
-  "public": {
-    "i18n": {
-      "baseUrl": "",
-      "defaultLocale": "",
-      "defaultDirection": "ltr",
-      "strategy": "prefix_except_default",
-      "lazy": false,
-      "rootRedirect": "",
-      "routesNameSeparator": "___",
-      "defaultLocaleRouteNameSuffix": "default",
-      "skipSettingLocaleOnNavigate": false,
-      "differentDomains": false,
-      "trailingSlash": false,
-      "configLocales": [],
-      "locales": {},
-      "detectBrowserLanguage": {
-        "alwaysRedirect": false,
-        "cookieCrossOrigin": false,
-        "cookieDomain": "",
-        "cookieKey": "i18n_redirected",
-        "cookieSecure": false,
-        "fallbackLocale": "",
-        "redirectOn": "root",
-        "useCookie": true
-      },
-      "experimental": {
-        "localeDetector": "",
-        "switchLocalePathLinkSSR": false,
-        "autoImportTranslationFunctions": false
-      }
-    }
-  }
+  "public": {}
 };
 const envOptions = {
   prefix: "NITRO_",
@@ -178,230 +147,7 @@ new Proxy(/* @__PURE__ */ Object.create(null), {
   }
 });
 
-const HASH_RE = /#/g;
-const AMPERSAND_RE = /&/g;
-const SLASH_RE = /\//g;
-const EQUAL_RE = /=/g;
-const PLUS_RE = /\+/g;
-const ENC_CARET_RE = /%5e/gi;
-const ENC_BACKTICK_RE = /%60/gi;
-const ENC_PIPE_RE = /%7c/gi;
-const ENC_SPACE_RE = /%20/gi;
-function encode(text) {
-  return encodeURI("" + text).replace(ENC_PIPE_RE, "|");
-}
-function encodeQueryValue(input) {
-  return encode(typeof input === "string" ? input : JSON.stringify(input)).replace(PLUS_RE, "%2B").replace(ENC_SPACE_RE, "+").replace(HASH_RE, "%23").replace(AMPERSAND_RE, "%26").replace(ENC_BACKTICK_RE, "`").replace(ENC_CARET_RE, "^").replace(SLASH_RE, "%2F");
-}
-function encodeQueryKey(text) {
-  return encodeQueryValue(text).replace(EQUAL_RE, "%3D");
-}
-function decode(text = "") {
-  try {
-    return decodeURIComponent("" + text);
-  } catch {
-    return "" + text;
-  }
-}
-function decodeQueryKey(text) {
-  return decode(text.replace(PLUS_RE, " "));
-}
-function decodeQueryValue(text) {
-  return decode(text.replace(PLUS_RE, " "));
-}
-
-function parseQuery(parametersString = "") {
-  const object = {};
-  if (parametersString[0] === "?") {
-    parametersString = parametersString.slice(1);
-  }
-  for (const parameter of parametersString.split("&")) {
-    const s = parameter.match(/([^=]+)=?(.*)/) || [];
-    if (s.length < 2) {
-      continue;
-    }
-    const key = decodeQueryKey(s[1]);
-    if (key === "__proto__" || key === "constructor") {
-      continue;
-    }
-    const value = decodeQueryValue(s[2] || "");
-    if (object[key] === void 0) {
-      object[key] = value;
-    } else if (Array.isArray(object[key])) {
-      object[key].push(value);
-    } else {
-      object[key] = [object[key], value];
-    }
-  }
-  return object;
-}
-function encodeQueryItem(key, value) {
-  if (typeof value === "number" || typeof value === "boolean") {
-    value = String(value);
-  }
-  if (!value) {
-    return encodeQueryKey(key);
-  }
-  if (Array.isArray(value)) {
-    return value.map((_value) => `${encodeQueryKey(key)}=${encodeQueryValue(_value)}`).join("&");
-  }
-  return `${encodeQueryKey(key)}=${encodeQueryValue(value)}`;
-}
-function stringifyQuery(query) {
-  return Object.keys(query).filter((k) => query[k] !== void 0).map((k) => encodeQueryItem(k, query[k])).filter(Boolean).join("&");
-}
-
-const PROTOCOL_STRICT_REGEX = /^[\s\w\0+.-]{2,}:([/\\]{1,2})/;
-const PROTOCOL_REGEX = /^[\s\w\0+.-]{2,}:([/\\]{2})?/;
-const PROTOCOL_RELATIVE_REGEX = /^([/\\]\s*){2,}[^/\\]/;
-const TRAILING_SLASH_RE = /\/$|\/\?|\/#/;
-const JOIN_LEADING_SLASH_RE = /^\.?\//;
-function hasProtocol(inputString, opts = {}) {
-  if (typeof opts === "boolean") {
-    opts = { acceptRelative: opts };
-  }
-  if (opts.strict) {
-    return PROTOCOL_STRICT_REGEX.test(inputString);
-  }
-  return PROTOCOL_REGEX.test(inputString) || (opts.acceptRelative ? PROTOCOL_RELATIVE_REGEX.test(inputString) : false);
-}
-function hasTrailingSlash(input = "", respectQueryAndFragment) {
-  if (!respectQueryAndFragment) {
-    return input.endsWith("/");
-  }
-  return TRAILING_SLASH_RE.test(input);
-}
-function withoutTrailingSlash(input = "", respectQueryAndFragment) {
-  if (!respectQueryAndFragment) {
-    return (hasTrailingSlash(input) ? input.slice(0, -1) : input) || "/";
-  }
-  if (!hasTrailingSlash(input, true)) {
-    return input || "/";
-  }
-  let path = input;
-  let fragment = "";
-  const fragmentIndex = input.indexOf("#");
-  if (fragmentIndex >= 0) {
-    path = input.slice(0, fragmentIndex);
-    fragment = input.slice(fragmentIndex);
-  }
-  const [s0, ...s] = path.split("?");
-  const cleanPath = s0.endsWith("/") ? s0.slice(0, -1) : s0;
-  return (cleanPath || "/") + (s.length > 0 ? `?${s.join("?")}` : "") + fragment;
-}
-function withTrailingSlash(input = "", respectQueryAndFragment) {
-  if (!respectQueryAndFragment) {
-    return input.endsWith("/") ? input : input + "/";
-  }
-  if (hasTrailingSlash(input, true)) {
-    return input || "/";
-  }
-  let path = input;
-  let fragment = "";
-  const fragmentIndex = input.indexOf("#");
-  if (fragmentIndex >= 0) {
-    path = input.slice(0, fragmentIndex);
-    fragment = input.slice(fragmentIndex);
-    if (!path) {
-      return fragment;
-    }
-  }
-  const [s0, ...s] = path.split("?");
-  return s0 + "/" + (s.length > 0 ? `?${s.join("?")}` : "") + fragment;
-}
-function withoutBase(input, base) {
-  if (isEmptyURL(base)) {
-    return input;
-  }
-  const _base = withoutTrailingSlash(base);
-  if (!input.startsWith(_base)) {
-    return input;
-  }
-  const trimmed = input.slice(_base.length);
-  return trimmed[0] === "/" ? trimmed : "/" + trimmed;
-}
-function withQuery(input, query) {
-  const parsed = parseURL(input);
-  const mergedQuery = { ...parseQuery(parsed.search), ...query };
-  parsed.search = stringifyQuery(mergedQuery);
-  return stringifyParsedURL(parsed);
-}
-function getQuery(input) {
-  return parseQuery(parseURL(input).search);
-}
-function isEmptyURL(url) {
-  return !url || url === "/";
-}
-function isNonEmptyURL(url) {
-  return url && url !== "/";
-}
-function joinURL(base, ...input) {
-  let url = base || "";
-  for (const segment of input.filter((url2) => isNonEmptyURL(url2))) {
-    if (url) {
-      const _segment = segment.replace(JOIN_LEADING_SLASH_RE, "");
-      url = withTrailingSlash(url) + _segment;
-    } else {
-      url = segment;
-    }
-  }
-  return url;
-}
-
-const protocolRelative = Symbol.for("ufo:protocolRelative");
-function parseURL(input = "", defaultProto) {
-  const _specialProtoMatch = input.match(
-    /^[\s\0]*(blob:|data:|javascript:|vbscript:)(.*)/i
-  );
-  if (_specialProtoMatch) {
-    const [, _proto, _pathname = ""] = _specialProtoMatch;
-    return {
-      protocol: _proto.toLowerCase(),
-      pathname: _pathname,
-      href: _proto + _pathname,
-      auth: "",
-      host: "",
-      search: "",
-      hash: ""
-    };
-  }
-  if (!hasProtocol(input, { acceptRelative: true })) {
-    return defaultProto ? parseURL(defaultProto + input) : parsePath(input);
-  }
-  const [, protocol = "", auth, hostAndPath = ""] = input.replace(/\\/g, "/").match(/^[\s\0]*([\w+.-]{2,}:)?\/\/([^/@]+@)?(.*)/) || [];
-  const [, host = "", path = ""] = hostAndPath.match(/([^#/?]*)(.*)?/) || [];
-  const { pathname, search, hash } = parsePath(
-    path.replace(/\/(?=[A-Za-z]:)/, "")
-  );
-  return {
-    protocol: protocol.toLowerCase(),
-    auth: auth ? auth.slice(0, Math.max(0, auth.length - 1)) : "",
-    host,
-    pathname,
-    search,
-    hash,
-    [protocolRelative]: !protocol
-  };
-}
-function parsePath(input = "") {
-  const [pathname = "", search = "", hash = ""] = (input.match(/([^#?]*)(\?[^#]*)?(#.*)?/) || []).splice(1);
-  return {
-    pathname,
-    search,
-    hash
-  };
-}
-function stringifyParsedURL(parsed) {
-  const pathname = parsed.pathname || "";
-  const search = parsed.search ? (parsed.search.startsWith("?") ? "" : "?") + parsed.search : "";
-  const hash = parsed.hash || "";
-  const auth = parsed.auth ? parsed.auth + "@" : "";
-  const host = parsed.host || "";
-  const proto = parsed.protocol || parsed[protocolRelative] ? (parsed.protocol || "") + "//" : "";
-  return proto + auth + host + pathname + search + hash;
-}
-
-const serverAssets = [{"baseName":"server","dir":"D:/My Projects/VueProjects/senghong/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"D:/My Projects/senghong-profile/server/assets"}];
 
 const assets = createStorage();
 
@@ -413,11 +159,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\My Projects\\VueProjects\\senghong","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\My Projects\\VueProjects\\senghong\\server","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\My Projects\\VueProjects\\senghong\\.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\My Projects\\VueProjects\\senghong\\.nuxt\\cache","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"D:\\My Projects\\VueProjects\\senghong\\.data\\kv","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\My Projects\\senghong-profile","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\My Projects\\senghong-profile\\server","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\My Projects\\senghong-profile\\.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\My Projects\\senghong-profile\\.nuxt\\cache","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"D:\\My Projects\\senghong-profile\\.data\\kv","ignore":["**/node_modules/**","**/.git/**"]}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -864,16 +610,16 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _mbREEEw3VA = (function(nitro) {
+const _VtLe8DaWqQ = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
-const rootDir = "D:/My Projects/VueProjects/senghong";
+const rootDir = "D:/My Projects/senghong-profile";
 
 const asyncContext = getContext("nuxt-dev", { asyncContext: true, AsyncLocalStorage });
-const _mCUcwxnEjs = (nitroApp) => {
+const _naq685dHaZ = (nitroApp) => {
   const handler = nitroApp.h3App.handler;
   nitroApp.h3App.handler = (event) => {
     return asyncContext.callAsync({ logs: [], event }, () => handler(event));
@@ -908,7 +654,11 @@ const _mCUcwxnEjs = (nitroApp) => {
     if (!ctx) {
       return;
     }
-    htmlContext.bodyAppend.unshift(`<script>window.__NUXT_LOGS__ = ${devalue(asyncContext.use().logs)}<\/script>`);
+    try {
+      htmlContext.bodyAppend.unshift(`<script type="application/json" id="__NUXT_LOGS__">${stringify(ctx.logs, ctx.event.context._payloadReducers)}<\/script>`);
+    } catch (e) {
+      console.warn("[nuxt] Failed to stringify dev server logs. You can define your own reducer/reviver for rich types following the instructions in https://nuxt.com/docs/api/composables/use-nuxt-app#payload.", e);
+    }
   });
 };
 const EXCLUDE_TRACE_RE = /^.*at.*(\/node_modules\/(.*\/)?(nuxt|nuxt-nightly|nuxt-edge|nuxt3|consola|@vue)\/.*|core\/runtime\/nitro.*)$\n?/gm;
@@ -935,8 +685,8 @@ function onConsoleLog(callback) {
 }
 
 const plugins = [
-  _mbREEEw3VA,
-_mCUcwxnEjs
+  _VtLe8DaWqQ,
+_naq685dHaZ
 ];
 
 const scheduledTasks = false;
@@ -1066,13 +816,11 @@ const errorHandler = (async function errorhandler(error, event) {
   return send(event, html);
 });
 
-const _lazy_pYDJJW = () => Promise.resolve().then(function () { return hello$1; });
-const _lazy_42LM5f = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_RKai4i = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '/api/hello', handler: _lazy_pYDJJW, lazy: true, middleware: false, method: undefined },
-  { route: '/__nuxt_error', handler: _lazy_42LM5f, lazy: true, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_42LM5f, lazy: true, middleware: false, method: undefined }
+  { route: '/__nuxt_error', handler: _lazy_RKai4i, lazy: true, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_RKai4i, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
@@ -1282,22 +1030,6 @@ const errorDev = /*#__PURE__*/Object.freeze({
   template: template$1
 });
 
-const hello = defineEventHandler((event) => {
-  console.log(event);
-  return {
-    api: [
-      { name: "Hang Senghong", age: 22 },
-      { name: "Hang Senghong1", age: 22 },
-      { name: "Hang Senghong2", age: 22 }
-    ]
-  };
-});
-
-const hello$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  default: hello
-});
-
 const Vue3 = version.startsWith("3");
 
 function resolveUnref(r) {
@@ -1368,18 +1100,18 @@ function buildAssetsDir() {
   return useRuntimeConfig().app.buildAssetsDir;
 }
 function buildAssetsURL(...path) {
-  return joinURL(publicAssetsURL(), buildAssetsDir(), ...path);
+  return joinRelativeURL(publicAssetsURL(), buildAssetsDir(), ...path);
 }
 function publicAssetsURL(...path) {
   const app = useRuntimeConfig().app;
   const publicBase = app.cdnURL || app.baseURL;
-  return path.length ? joinURL(publicBase, ...path) : publicBase;
+  return path.length ? joinRelativeURL(publicBase, ...path) : publicBase;
 }
 
 globalThis.__buildAssetsURL = buildAssetsURL;
 globalThis.__publicAssetsURL = publicAssetsURL;
-const getClientManifest = () => import('file://D:/My%20Projects/VueProjects/senghong/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
-const getServerEntry = () => import('file://D:/My%20Projects/VueProjects/senghong/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
+const getClientManifest = () => import('file://D:/My%20Projects/senghong-profile/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getServerEntry = () => import('file://D:/My%20Projects/senghong-profile/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
 const getSSRStyles = lazyCachedFunction(() => Promise.resolve().then(function () { return styles$1; }).then((r) => r.default || r));
 const getSSRRenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();
@@ -1437,10 +1169,12 @@ const getSPARenderer = lazyCachedFunction(async () => {
     renderToString
   };
 });
+const ISLAND_SUFFIX_RE = /\.json(\?.*)?$/;
 async function getIslandContext(event) {
   let url = event.path || "";
-  url = url.substring("/__nuxt_island".length + 1) || "";
-  const [componentName, hashId] = url.split("?")[0].replace(/\.json$/, "").split("_");
+  const componentParts = url.substring("/__nuxt_island".length + 1).replace(ISLAND_SUFFIX_RE, "").split("_");
+  const hashId = componentParts.length > 1 ? componentParts.pop() : void 0;
+  const componentName = componentParts.join("_");
   const context = event.method === "GET" ? getQuery$1(event) : await readBody(event);
   const ctx = {
     url: "/",
@@ -1711,8 +1445,8 @@ const SSR_SLOT_TELEPORT_MARKER = /^uid=([^;]*);slot=(.*)$/;
 const SSR_CLIENT_TELEPORT_MARKER = /^uid=([^;]*);client=(.*)$/;
 const SSR_CLIENT_SLOT_MARKER = /^island-slot=(?:[^;]*);(.*)$/;
 function getSlotIslandResponse(ssrContext) {
-  if (!ssrContext.islandContext) {
-    return {};
+  if (!ssrContext.islandContext || !Object.keys(ssrContext.islandContext.slots).length) {
+    return void 0;
   }
   const response = {};
   for (const slot in ssrContext.islandContext.slots) {
@@ -1724,8 +1458,8 @@ function getSlotIslandResponse(ssrContext) {
   return response;
 }
 function getClientIslandResponse(ssrContext) {
-  if (!ssrContext.islandContext) {
-    return {};
+  if (!ssrContext.islandContext || !Object.keys(ssrContext.islandContext.components).length) {
+    return void 0;
   }
   const response = {};
   for (const clientUid in ssrContext.islandContext.components) {
