@@ -30,27 +30,26 @@
                         <div class="absolute top-[180px] md:top-10 md:left-[60px] space-y-1 rounded-md hover:shadow-md p-2">
                             <div class="flex flex-col space-y-0">
                                 <label for="name">Your Name</label>
-                                <input type="text" placeholder="enter name" v-model="Info.name"
+                                <input type="text" placeholder="enter name" v-model="formRequest.name"
                                     class="px-1 rounded-md  outline-none focus:ring-yellow py-1 ring-1 ring-green-500">
                                 <p v-if="errorMessage" class="text-sm text-red-400">{{ errorMessage }}</p>
                                 <p v-else></p>
                             </div>
                             <div class="flex flex-col space-y-0">
                                 <label for="email">Email</label>
-                                <input type="text" placeholder="enter your email address" v-model="Info.email"
+                                <input type="text" placeholder="enter your email address" v-model="formRequest.email"
                                     class="px-1 rounded-md  outline-none focus:ring-yellow py-1 ring-1 ring-green-500">
-                                <!-- <FieldForm :model="Info.email" :placeholder="'Enter email address'" :label="'Email'">
-                                </FieldForm> -->
+                               
                             </div>
                             <div class="flex flex-col space-y-0">
                                 <label for="name">Phone</label>
-                                <input type="number" placeholder="enter phone number" v-model="Info.phone"
+                                <input type="number" placeholder="enter phone number" v-model="formRequest.phone"
                                     class="px-1 rounded-md  outline-none focus:ring-yellow appearance-none py-1 ring-1 ring-green-500">
                             </div>
                             <div class="flex flex-col space-y-0">
                                 <label for="name">Message</label>
                                 <textarea name="" id="" cols="30" rows="3" placeholder="enter your message"
-                                    v-model="Info.message"
+                                    v-model="formRequest.message"
                                     class="px-1 rounded-md  outline-none focus:ring-yellow py-1 ring-1 ring-green-500"></textarea>
                             </div>
 
@@ -72,60 +71,12 @@
 </template>
 <script setup lang="ts" >
 import { myInfo } from '~~/interfaces/interface'
-import FieldForm from '@/components/FieldForm.vue';
-import { ErrorMessage, SuccessMessage } from '~/utils/message'
-import axios from "axios";
-import { ref } from 'vue'
-const isLoading = ref<boolean>(false)
-const errorMessage = ref()
-interface myInfo {
-    name: string,
-    email: string,
-    phone: number | null,
-    message: string,
-}
+import useContact from '~/composables/useContact';
+const {
+    isLoading,
+    AddMessage,
+    errorMessage,
+   formRequest,
+} = useContact();
 
-const Info = reactive<myInfo>({
-    name: '',
-    email: '',
-    phone: null,
-    message: '',
-})
-
-onMounted(() => {
-    //    return errorMessage.value
-})
-
-
-
-
-const chatID: number = 947503787
-const token = "6729315582:AAEh0uM15vNhvEF9-qRyGHRGzTa24TnqSdo"
-const AddMessage = async () => {
-    if (!Info.name.trim()) {
-        errorMessage.value = 'Please enter a value';
-        return;
-    }
-    isLoading.value = true
-    try {
-
-        if (Info.name && Info.message && Info.message != '') {
-            const messages: string = `Name: ${Info.name} \n Email: ${Info.email} \n Phone: ${Info.phone} \n Message: ${Info.message}`;
-            const api: string = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatID}&text=${messages}`
-            await axios.post(api)
-            SuccessMessage()
-            isLoading.value = false
-            Info.email = ''
-            Info.name = ''
-            Info.message = ''
-            Info.phone = null
-
-        } else {
-            ErrorMessage("Please enter valid values")
-            isLoading.value = false
-        }
-    } catch (error) {
-        ErrorMessage(error)
-    }
-}
 </script>
