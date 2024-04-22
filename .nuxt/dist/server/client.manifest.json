@@ -7,12 +7,12 @@
     "module": true,
     "resourceType": "script"
   },
-  "D:/My Projects/senghong-profile/node_modules/nuxt/dist/app/entry.js": {
+  "D:/My Projects/VueProjects/senghong-profile/node_modules/nuxt/dist/app/entry.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
     "isEntry": true,
-    "file": "D:/My Projects/senghong-profile/node_modules/nuxt/dist/app/entry.js"
+    "file": "D:/My Projects/VueProjects/senghong-profile/node_modules/nuxt/dist/app/entry.js"
   }
 }

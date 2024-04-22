@@ -1,9 +1,8 @@
 <template>
-    <div class="bg-imaage w-full h-auto" :style="{ backgroundImage: `url(${Image})` }">
+    <div class="bg-imaage w-full h-auto" >
 
     </div>
 </template>
 <script setup lang="ts">
-let Image = '@/assets/images/bg01.jpg';
 
 </script>
