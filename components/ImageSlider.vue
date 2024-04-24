@@ -37,10 +37,12 @@
         v-for="(im, index) in images"
         :key="index"
         class="font-bold text-[30px]"
-        :class="{ 'text-green-500': props.currentIndex === index }"
         @click="$emit('selectedIndex', index)"
       >
-        -
+        <div
+          :class="{ 'border-green-500 w-[20px]': props.currentIndex === index }"
+          class="border-[3px] w-[10px] m-[2px] rounded-sm"
+        ></div>
       </button>
     </div>
   </div>
@@ -61,5 +63,3 @@ const props = defineProps({
   prevSlide: Function,
 });
 </script>
-
-<style scoped></style>

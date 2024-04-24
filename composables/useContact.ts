@@ -24,7 +24,11 @@ export default function useContact() {
     }
     isLoading.value = true;
     try {
-      if (formRequest.name && formRequest.message && formRequest.message != "") {
+      if (
+        formRequest.name &&
+        formRequest.message &&
+        formRequest.message != ""
+      ) {
         const messages: string = `Name: ${formRequest.name} \n Email: ${formRequest.email} \n Phone: ${formRequest.phone} \n Message: ${formRequest.message}`;
         const api: string = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatID}&text=${messages}`;
         await axios.post(api);

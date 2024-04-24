@@ -1,12 +1,8 @@
 <template>
   <div class="flex w-full justify-center items-center lg:p-10">
-    <form
-      method="POST"
-      @submit.prevent="AddMessage"
-      class="w-full flex h-full justify-center"
-    >
+    <form class="w-full flex h-full justify-center">
       <div
-        class="w-[700px] relative my_animated dark:bg-gray-800 bg-gray-300 h-screen justify-center flex items-center rounded-[10px] my-5 sm:mt-0"
+        class="w-[700px] relative my_animated dark:bg-gray-800 bg-gray-300 min-h-screen justify-center flex items-center rounded-[10px] my-5 sm:mt-0"
       >
         <!--  -->
         <div
@@ -15,7 +11,7 @@
           Contact Me
         </div>
         <div
-          class="md:w-[800px] w-[calc(100vw-50px)] absolute h-[500px] bg-gray-200 rounded-[15px] shadow-md shadow-green-900"
+          class="md:w-[800px] w-[calc(100vw-50px)] absolute h-[550px] bg-gray-200 rounded-[15px] shadow-md shadow-green-900"
         >
           <div class="w-full relative h-full flex justify-center">
             <!-- My info -->
@@ -84,20 +80,23 @@
                   class="px-1 rounded-md outline-none focus:ring-yellow py-1 ring-1 ring-green-500"
                 ></textarea>
               </div>
-            </div>
-            <!-- button -->
-            <div
-              class="absolute top-[480px] text-white h-full md:right-[-20px]"
-            >
-              <button
+              <!-- <button
                 class="px-4 py-1.5 bg-yellow-500 rounded-md"
                 type="submit"
                 :disabled="isLoading"
                 :class="{ 'bg-gray-400': isLoading }"
               >
-                <span v-if="isLoading">Sending...</span
+                <span v-if="</el-button>">Sending...</span
                 ><span v-else>Submit</span>
-              </button>
+              </button> -->
+              <div>
+                <el-button
+                  :loading="isLoading"
+                  type="success"
+                  @click="AddMessage"
+                  >Submit</el-button
+                >
+              </div>
             </div>
           </div>
         </div>

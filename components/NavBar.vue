@@ -1,6 +1,7 @@
 <template>
   <div
-    class="md:flex hidden w-full bg-gray-200 text-gray-800 dark:bg-gray-900 border-b-[0.5px] dark:text-white justify-center px-10 py-2 space-x-4 sticky top-0 z-[2]"
+    :class="isScrolled ? 'headerScrolling' : 'header'"
+    class="md:flex hidden w-full bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-white justify-center px-10 py-4 space-x-4"
   >
     <div class="w-full flex justify-center">
       <NuxtLink
@@ -48,6 +49,30 @@
 </template>
 <script setup lang="ts">
 import { links, toggleDark, isDark } from "@/interfaces/interface";
+import { ref, computed, onMounted } from "vue";
 
+const isScrolled = ref(false);
 const value = ref("");
+
+onMounted(() => {
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 100) {
+      isScrolled.value = true;
+    } else {
+      isScrolled.value = false;
+    }
+  });
+});
 </script>
+<style>
+.headerScrolling {
+  width: 95%;
+  margin-top: 5px;
+  transition: all 0.5s ease-in-out;
+  background: rgba(117, 115, 115, 0.7) !important;
+  border-radius: 15px;
+}
+.header {
+  width: 100%;
+}
+</style>

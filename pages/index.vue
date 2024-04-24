@@ -3,7 +3,7 @@
     class="flex flex-col items-center w-full justify-center p-1 md:px-[80px]"
   >
     <image-slider
-      :images="images"
+      :images="Images"
       :next-slide="nextSlide"
       :prev-slide="prevSlide"
       :current-index="currentIndex"
@@ -39,62 +39,11 @@
   </div>
 </template>
 <script setup lang="ts">
-const skills = [
-  {
-    name: "Web Development",
-    program: ["Node js", "Vue Js", "Nuxt Js"],
-    bg: "https://www.elegantthemes.com/blog/wp-content/uploads/2018/12/top11.png",
-  },
-  {
-    name: "Mobile Development",
-    program: ["Node js", "Vue Js", "Nuxt Js"],
-    bg: "https://www.ideamotive.co/hubfs/app%20development%20cost.png",
-  },
+import useHome from "~/composables/useHome";
+const { skills, currentIndex, Images, nextSlide, prevSlide, selectedIndex } =
+  useHome();
 
-  {
-    name: "Design UI/UX",
-    program: ["Node js", "Vue Js", "Nuxt Js"],
-    bg: "https://img.freepik.com/free-vector/gradient-style-ui-ux-background_52683-69621.jpg",
-  },
-];
 
-import slide1 from "~/assets/images/slides/slide1.jpg";
-import slide2 from "~/assets/images/slides/slide2.jpg";
-import slide3 from "~/assets/images/slides/slide3.jpg";
-const currentIndex = ref(0);
-const images = [
-  {
-    src: slide1,
-    alt: "Image 1",
-  },
-  {
-    src: slide2,
-    alt: "Image 2",
-  },
-  {
-    src: slide3,
-    alt: "Image 3",
-  },
-];
-
-const nextSlide = () => {
-  currentIndex.value = (currentIndex.value + 1) % images.length;
-  console.log(currentIndex.value);
-};
-
-const prevSlide = () => {
-  currentIndex.value = (currentIndex.value - 1 + images.length) % images.length;
-};
-
-const selectedIndex = (index: number) => {
-  currentIndex.value = index;
-};
-
-onMounted(() => {
-  setInterval(() => {
-    nextSlide();
-  }, 5000);
-});
 </script>
 <style scoped>
 .UpdateButton {
@@ -104,8 +53,6 @@ onMounted(() => {
 
 .change {
   transform: translateX(42px);
-
-  /* opacity: 0; */
 }
 
 @keyframes change {
