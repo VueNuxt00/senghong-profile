@@ -18,7 +18,7 @@
       >
     </div>
     <!-- Switch button -->
-    <el-tooltip :content="value + ' Mode'" placement="top">
+    <!-- <el-tooltip :content="value + ' Mode'" placement="top">
       <el-switch
         v-model="value"
         @click="toggleDark()"
@@ -30,7 +30,7 @@
         active-value="Dark"
         inactive-value="Light"
       />
-    </el-tooltip>
+    </el-tooltip> -->
   </div>
   <div
     class="md:hidden justify-center items-center flex w-full p-2 fixed z-10 bottom-0 bg-gray-800 text-white font-bold"
@@ -56,7 +56,7 @@ const value = ref("");
 
 onMounted(() => {
   window.addEventListener("scroll", function () {
-    if (window.scrollY > 100) {
+    if (window.scrollY) {
       isScrolled.value = true;
     } else {
       isScrolled.value = false;
@@ -69,8 +69,8 @@ onMounted(() => {
   width: 95%;
   margin-top: 5px;
   transition: all 0.5s ease-in-out;
-  background: rgba(117, 115, 115, 0.7) !important;
-  border-radius: 15px;
+  background: rgba(217, 216, 216, 0.7) !important;
+  border-radius: 50px;
 }
 .header {
   width: 100%;

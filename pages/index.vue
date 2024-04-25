@@ -39,11 +39,9 @@
   </div>
 </template>
 <script setup lang="ts">
-import useHome from "~/composables/useHome";
+import useSkill from "~/composables/useSkill";
 const { skills, currentIndex, Images, nextSlide, prevSlide, selectedIndex } =
-  useHome();
-
-
+  useSkill();
 </script>
 <style scoped>
 .UpdateButton {

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { ref } from "vue";
-import { ErrorMessage, SuccessMessage } from "~/utils/message";
+import { ErrorMessage, SuccessMessage } from "~/library/message";
 import type { FormInstance, FormRules } from "element-plus";
 import type { Contact } from "~/models/contact";
 

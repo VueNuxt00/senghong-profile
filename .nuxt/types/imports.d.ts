@@ -298,8 +298,6 @@ declare global {
   const ElMessage: typeof import('../../node_modules/element-plus')['ElMessage']
   const ElMessageBox: typeof import('../../node_modules/element-plus')['ElMessageBox']
   const ElNotification: typeof import('../../node_modules/element-plus')['ElNotification']
-  const ErrorMessage: typeof import('../../utils/message')['ErrorMessage']
-  const SuccessMessage: typeof import('../../utils/message')['SuccessMessage']
   const abortNavigation: typeof import('../../node_modules/nuxt/dist/app/composables/router')['abortNavigation']
   const addRouteMiddleware: typeof import('../../node_modules/nuxt/dist/app/composables/router')['addRouteMiddleware']
   const asyncComputed: typeof import('../../node_modules/@vueuse/core')['asyncComputed']
@@ -523,7 +521,6 @@ declare global {
   const useGeolocation: typeof import('../../node_modules/@vueuse/core')['useGeolocation']
   const useHead: typeof import('../../node_modules/@unhead/vue')['useHead']
   const useHeadSafe: typeof import('../../node_modules/@unhead/vue')['useHeadSafe']
-  const useHome: typeof import('../../composables/useHome')['default']
   const useHydration: typeof import('../../node_modules/nuxt/dist/app/composables/hydrate')['useHydration']
   const useId: typeof import('../../node_modules/nuxt/dist/app/composables/id')['useId']
   const useIdle: typeof import('../../node_modules/@vueuse/core')['useIdle']
@@ -596,6 +593,7 @@ declare global {
   const useServerSeoMeta: typeof import('../../node_modules/@unhead/vue')['useServerSeoMeta']
   const useSessionStorage: typeof import('../../node_modules/@vueuse/core')['useSessionStorage']
   const useShare: typeof import('../../node_modules/@vueuse/core')['useShare']
+  const useSkill: typeof import('../../composables/useSkill')['default']
   const useSlots: typeof import('../../node_modules/vue')['useSlots']
   const useSorted: typeof import('../../node_modules/@vueuse/core')['useSorted']
   const useSpeechRecognition: typeof import('../../node_modules/@vueuse/core')['useSpeechRecognition']
@@ -967,8 +965,6 @@ declare module 'vue' {
     readonly ElMessage: UnwrapRef<typeof import('../../node_modules/element-plus')['ElMessage']>
     readonly ElMessageBox: UnwrapRef<typeof import('../../node_modules/element-plus')['ElMessageBox']>
     readonly ElNotification: UnwrapRef<typeof import('../../node_modules/element-plus')['ElNotification']>
-    readonly ErrorMessage: UnwrapRef<typeof import('../../utils/message')['ErrorMessage']>
-    readonly SuccessMessage: UnwrapRef<typeof import('../../utils/message')['SuccessMessage']>
     readonly abortNavigation: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['abortNavigation']>
     readonly addRouteMiddleware: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['addRouteMiddleware']>
     readonly asyncComputed: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['asyncComputed']>
@@ -1192,7 +1188,6 @@ declare module 'vue' {
     readonly useGeolocation: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useGeolocation']>
     readonly useHead: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['useHead']>
     readonly useHeadSafe: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['useHeadSafe']>
-    readonly useHome: UnwrapRef<typeof import('../../composables/useHome')['default']>
     readonly useHydration: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/hydrate')['useHydration']>
     readonly useId: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/id')['useId']>
     readonly useIdle: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useIdle']>
@@ -1265,6 +1260,7 @@ declare module 'vue' {
     readonly useServerSeoMeta: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['useServerSeoMeta']>
     readonly useSessionStorage: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useSessionStorage']>
     readonly useShare: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useShare']>
+    readonly useSkill: UnwrapRef<typeof import('../../composables/useSkill')['default']>
     readonly useSlots: UnwrapRef<typeof import('../../node_modules/vue')['useSlots']>
     readonly useSorted: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useSorted']>
     readonly useSpeechRecognition: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useSpeechRecognition']>
@@ -1629,8 +1625,6 @@ declare module '@vue/runtime-core' {
     readonly ElMessage: UnwrapRef<typeof import('../../node_modules/element-plus')['ElMessage']>
     readonly ElMessageBox: UnwrapRef<typeof import('../../node_modules/element-plus')['ElMessageBox']>
     readonly ElNotification: UnwrapRef<typeof import('../../node_modules/element-plus')['ElNotification']>
-    readonly ErrorMessage: UnwrapRef<typeof import('../../utils/message')['ErrorMessage']>
-    readonly SuccessMessage: UnwrapRef<typeof import('../../utils/message')['SuccessMessage']>
     readonly abortNavigation: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['abortNavigation']>
     readonly addRouteMiddleware: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['addRouteMiddleware']>
     readonly asyncComputed: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['asyncComputed']>
@@ -1854,7 +1848,6 @@ declare module '@vue/runtime-core' {
     readonly useGeolocation: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useGeolocation']>
     readonly useHead: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['useHead']>
     readonly useHeadSafe: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['useHeadSafe']>
-    readonly useHome: UnwrapRef<typeof import('../../composables/useHome')['default']>
     readonly useHydration: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/hydrate')['useHydration']>
     readonly useId: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/id')['useId']>
     readonly useIdle: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useIdle']>
@@ -1927,6 +1920,7 @@ declare module '@vue/runtime-core' {
     readonly useServerSeoMeta: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['useServerSeoMeta']>
     readonly useSessionStorage: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useSessionStorage']>
     readonly useShare: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useShare']>
+    readonly useSkill: UnwrapRef<typeof import('../../composables/useSkill')['default']>
     readonly useSlots: UnwrapRef<typeof import('../../node_modules/vue')['useSlots']>
     readonly useSorted: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useSorted']>
     readonly useSpeechRecognition: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useSpeechRecognition']>

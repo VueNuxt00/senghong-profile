@@ -12,6 +12,7 @@
 
     <div class="flex w-full justify-center flex-wrap items-center md:p-10 p-4">
       <div
+        id="content"
         v-for="(skill, index) in skills"
         :key="index"
         class="md:min-w-[400px] w-[350px] group max-w-md relative overflow-hidden h-[200px] dark:bg-gray-700 px-4 bg-gray-200 rounded-md mx-2 my-2 flex justify-center border-2 hover:shadow-md shadow-blue-400 border-transparent hover:border-green-500 items-center"
@@ -39,9 +40,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import useHome from "~/composables/useHome";
+import useSkill from "~/composables/useSkill";
+import { onMounted } from "vue";
 const { skills, currentIndex, Images, nextSlide, prevSlide, selectedIndex } =
-  useHome();
+  useSkill();
 </script>
 <style scoped>
 .UpdateButton {
@@ -87,5 +89,21 @@ const { skills, currentIndex, Images, nextSlide, prevSlide, selectedIndex } =
 
 .text {
   text-shadow: 5px 5px 10px rgb(207, 191, 191), -5px -5px 4px blue;
+}
+
+#content {
+  animation: fade-in 0.5s linear forwards;
+  animation-timeline: view();
+  animation-range: 100px 300px;
+  /* animation-range-end: contain; */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 </style>
