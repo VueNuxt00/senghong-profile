@@ -13,8 +13,8 @@ export const links: typLink[] = [
 ];
 
 // for themes toggle
-export const isDark = useDark();
-export const toggleDark = useToggle(isDark);
+// export const isDark = useDark();
+// export const toggleDark = useToggle(isDark);
 
 export const myInfo = [
   { title: "Phone", data: "096 863 4125" },

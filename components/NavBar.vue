@@ -48,7 +48,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { links, toggleDark, isDark } from "@/interfaces/interface";
+import { links } from "@/interfaces/interface";
 import { ref, computed, onMounted } from "vue";
 
 const isScrolled = ref(false);
