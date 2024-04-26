@@ -11,7 +11,7 @@
           Contact Me
         </div>
         <div
-          class="md:w-[800px] w-[calc(100vw-50px)] absolute h-[550px] bg-gray-200 rounded-[15px] shadow-md shadow-green-900"
+          class="md:w-[800px] w-[calc(100vw-50px)] absolute h-[650px] md:h-[550px] bg-gray-200 rounded-[15px] shadow-md shadow-green-900"
         >
           <div class="w-full relative h-full flex justify-center">
             <!-- My info -->
@@ -35,68 +35,67 @@
             </div>
 
             <div
-              class="absolute top-[180px] md:top-10 md:left-[60px] space-y-1 rounded-md hover:shadow-md p-2"
+              class="absolute top-[180px] md:top-10 min-w-[300px] md:left-[60px] space-y-1 rounded-md md:hover:shadow-md p-2"
             >
-              <div class="flex flex-col space-y-0">
-                <label for="name">Your Name</label>
-                <input
-                  type="text"
-                  placeholder="enter name"
-                  v-model="formRequest.name"
-                  class="px-1 rounded-md outline-none focus:ring-yellow py-1 ring-1 ring-green-500"
-                />
-                <p v-if="errorMessage" class="text-sm text-red-400">
-                  {{ errorMessage }}
-                </p>
-                <p v-else></p>
-              </div>
-              <div class="flex flex-col space-y-0">
-                <label for="email">Email</label>
-                <input
-                  type="text"
-                  placeholder="enter your email address"
-                  v-model="formRequest.email"
-                  class="px-1 rounded-md outline-none focus:ring-yellow py-1 ring-1 ring-green-500"
-                />
-              </div>
-              <div class="flex flex-col space-y-0">
-                <label for="name">Phone</label>
-                <input
-                  type="number"
-                  placeholder="enter phone number"
-                  v-model="formRequest.phone"
-                  class="px-1 rounded-md outline-none focus:ring-yellow appearance-none py-1 ring-1 ring-green-500"
-                />
-              </div>
-              <div class="flex flex-col space-y-0">
-                <label for="name">Message</label>
-                <textarea
-                  name=""
-                  id=""
-                  cols="30"
-                  rows="3"
-                  placeholder="enter your message"
-                  v-model="formRequest.message"
-                  class="px-1 rounded-md outline-none focus:ring-yellow py-1 ring-1 ring-green-500"
-                ></textarea>
-              </div>
-              <!-- <button
-                class="px-4 py-1.5 bg-yellow-500 rounded-md"
-                type="submit"
-                :disabled="isLoading"
-                :class="{ 'bg-gray-400': isLoading }"
+              <el-form
+                ref="ruleFormRef"
+                style="max-width: 100%"
+                :model="ruleForm"
+                status-icon
+                :rules="rules"
+                label-width="auto"
+                label-position="top"
+                class="demo-ruleForm"
               >
-                <span v-if="</el-button>">Sending...</span
-                ><span v-else>Submit</span>
-              </button> -->
-              <div>
-                <el-button
-                  :loading="isLoading"
-                  type="success"
-                  @click="AddMessage"
-                  >Submit</el-button
-                >
-              </div>
+                <el-form-item label="Username" prop="Username">
+                  <el-input
+                    v-model="ruleForm.Username"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Please enter your username"
+                  />
+                </el-form-item>
+                <el-form-item label="Email" prop="email">
+                  <el-input
+                    v-model="ruleForm.email"
+                    type="email"
+                    autocomplete="off"
+                    placeholder="Please enter a valid email"
+                  />
+                </el-form-item>
+                <el-form-item label="Phone" prop="phone">
+                  <el-input
+                    v-model="ruleForm.phone"
+                    type="phone"
+                    autocomplete="off"
+                    placeholder="Please enter a valid phone"
+                  />
+                </el-form-item>
+                <el-form-item label="Reference Link">
+                  <el-input
+                    v-model="ruleForm.reflink"
+                    type=" links"
+                    autocomplete="off"
+                    placeholder="Input web-link"
+                  />
+                </el-form-item>
+                <el-form-item label="Message" prop="message">
+                  <el-input
+                    v-model="ruleForm.message"
+                    type="textarea"
+                    placeholder="Please input your message"
+                  />
+                </el-form-item>
+                <el-form-item>
+                  <el-button
+                    type="primary"
+                    :loading="isLoading"
+                    @click="submitForm(ruleFormRef)"
+                  >
+                    Submit
+                  </el-button>
+                </el-form-item>
+              </el-form>
             </div>
           </div>
         </div>
@@ -107,5 +106,13 @@
 <script setup lang="ts">
 import { myInfo } from "~~/interfaces/interface";
 import useContact from "~/composables/useContact";
-const { isLoading, AddMessage, errorMessage, formRequest } = useContact();
+const {
+  isLoading,
+  errorMessage,
+  ruleFormRef,
+  resetForm,
+  ruleForm,
+  rules,
+  submitForm,
+} = useContact();
 </script>

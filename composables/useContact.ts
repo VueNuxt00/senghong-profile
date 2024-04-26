@@ -2,59 +2,93 @@ import axios from "axios";
 import { ref } from "vue";
 import { ErrorMessage, SuccessMessage } from "~/library/message";
 import type { FormInstance, FormRules } from "element-plus";
-import type { Contact } from "~/models/contact";
-
 export default function useContact() {
   const isLoading = ref<boolean>(false);
   const errorMessage = ref();
 
-  const formRequest = reactive<Contact>({
-    name: "",
+  const ruleFormRef = ref<FormInstance>();
+
+  const requestForm = reactive({
+    Username: "",
     email: "",
-    phone: null,
+    phone: "",
+    reflink: "",
     message: "",
   });
 
-  const chatID: number = 947503787;
-  const token = "6729315582:AAEh0uM15vNhvEF9-qRyGHRGzTa24TnqSdo";
-  const AddMessage = async () => {
-    if (!formRequest.name.trim()) {
-      errorMessage.value = "Please enter a value";
-      return;
-    }
-    isLoading.value = true;
-    try {
-      if (
-        formRequest.name &&
-        formRequest.message &&
-        formRequest.message != ""
-      ) {
-        const messages: string = `Name: ${formRequest.name} \n Email: ${formRequest.email} \n Phone: ${formRequest.phone} \n Message: ${formRequest.message}`;
-        const api: string = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatID}&text=${messages}`;
-        await axios.post(api);
-        SuccessMessage();
-        isLoading.value = false;
-        formRequest.email = "";
-        formRequest.name = "";
-        formRequest.message = "";
-        formRequest.phone = null;
-      } else {
-        ErrorMessage("Please enter valid values");
-        isLoading.value = false;
-      }
-    } catch (error) {
-      ErrorMessage(error);
-    }
-  };
+  const rules = reactive<FormRules<typeof requestForm>>({
+    Username: [{ required: true, trigger: "blur" }],
+    email: [{ required: true, trigger: "blur" }],
+    message: [{ required: true, trigger: "blur" }],
+    phone: [{ required: true, trigger: "blur" }],
+  });
+
   const resetForm = (formEl: FormInstance | undefined) => {
     if (!formEl) return;
     formEl.resetFields();
+  };
+  const chatID: number = 947503787;
+  const token = "6729315582:AAEh0uM15vNhvEF9-qRyGHRGzTa24TnqSdo";
+  const AddMessage = async () => {
+    isLoading.value = true;
+    try {
+      const api: string = `https://api.telegram.org/bot${token}/sendMessage`;
+      let messages: string;
+      if (
+        requestForm.reflink.length > 0 &&
+        !requestForm.reflink.includes("http")
+      ) {
+        ErrorMessage("Please input link in Reference link field");
+      } else {
+        if (requestForm.reflink !== "" && requestForm.reflink !== null) {
+          messages = `
+          **Message:**
+            [${requestForm.reflink}](${requestForm.reflink})
+            Name: ${requestForm.Username}
+            Email: ${requestForm.email}
+            Phone: ${requestForm.phone}
+            Message: ${requestForm.message}`;
+        } else {
+          messages = `
+          **Message:**
+            Name: ${requestForm.Username}
+            Email: ${requestForm.email}
+            Phone: ${requestForm.phone}
+            Message: ${requestForm.message}`;
+        }
+        await axios.post(api, {
+          chat_id: chatID,
+          text: messages,
+          parse_mode: "Markdown",
+        });
+        SuccessMessage();
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      isLoading.value = false;
+    }
+  };
+  const submitForm = (formEl: FormInstance | undefined) => {
+    if (!formEl) return;
+    formEl.validate((valid) => {
+      if (valid) {
+        AddMessage();
+      } else {
+        // console.log('error submit!')
+        return false;
+      }
+    });
   };
 
   return {
     isLoading,
     AddMessage,
     errorMessage,
-    formRequest,
+    ruleFormRef,
+    resetForm,
+    ruleForm: requestForm,
+    rules,
+    submitForm,
   };
 }
