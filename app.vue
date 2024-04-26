@@ -17,7 +17,8 @@
 useSeoMeta({
   title: "Senghong",
   ogTitle: "Senghong",
-  description: "This is the website description about my experience with daily work",
+  description:
+    "This is the website description about my experience with daily work",
   ogDescription: "This is my amazing site, let me tell you all about it.",
 });
 </script>
