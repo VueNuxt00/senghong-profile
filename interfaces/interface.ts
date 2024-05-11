@@ -6,15 +6,11 @@ type typLink = {
 };
 export const links: typLink[] = [
   { name: "home", href: "/" },
-  { name: "Skills", href: "/skill" },
+  // { name: "Skills", href: "/skill" },
   { name: "Contact Me", href: "/contact" },
   { name: "Services", href: "/service" },
   { name: "My Works", href: "/mywork" },
 ];
-
-// for themes toggle
-// export const isDark = useDark();
-// export const toggleDark = useToggle(isDark);
 
 export const myInfo = [
   { title: "Phone", data: "096 863 4125" },
